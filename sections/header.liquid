@@ -1,0 +1,86 @@
+<header class="site-header">
+  <div class="container header-container">
+    <!-- Brand Logo -->
+    <a href="/" class="brand-logo">
+      <div class="logo-icon">
+        <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Stylized High Heel Icon with Purple Speed Swirls -->
+          <path d="M6 28C10 28 14 26 17 22L20 18C21.5 16 23.5 15 26 15H30V19C28 19 26.5 20 25 21.5L22 24.5C18 28.5 13 30 6 30V28Z" fill="#5c248b"/>
+          <path d="M29 15V29H26V17C27 16 28 15.5 29 15Z" fill="#5c248b"/>
+          <path d="M3 24C8 24 13 22 16 18" stroke="#7b3eb8" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M2 19C6 19 10 17 13 14" stroke="#a768e6" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="logo-text-group">
+        <span class="logo-title">MEA'S SHOELLE</span>
+        <span class="logo-tagline">step in style</span>
+      </div>
+    </a>
+
+    <!-- Navigation Menu -->
+    <nav class="nav-menu" aria-label="Main Navigation">
+      <a href="/" class="nav-link active">HOME</a>
+      <a href="/collections/all" class="nav-link">SHOP</a>
+      <a href="/pages/about" class="nav-link">PAGES</a>
+      <a href="/blogs/news" class="nav-link">BLOG</a>
+      <a href="/pages/elements" class="nav-link">ELEMENT</a>
+      <a href="/collections/featured" class="nav-link">BUY</a>
+    </nav>
+
+    <!-- Header Actions / Icons -->
+    <div class="header-actions">
+      <!-- User Account -->
+      <a href="/account" class="header-icon-btn" aria-label="Account">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+          <circle cx="12" cy="7" r="4"></circle>
+        </svg>
+      </a>
+
+      <!-- Wishlist -->
+      <a href="/pages/wishlist" class="header-icon-btn" aria-label="Wishlist">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+        </svg>
+      </a>
+
+      <!-- Search -->
+      <button class="header-icon-btn" aria-label="Search" onclick="document.querySelector('.search-drawer')?.classList.toggle('active')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+      </button>
+
+      <!-- Cart -->
+      <a href="/cart" class="header-icon-btn" aria-label="Shopping Cart">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="9" cy="21" r="1"></circle>
+          <circle cx="20" cy="21" r="1"></circle>
+          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+        </svg>
+        <span class="cart-count-badge">0</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    {
+      "type": "text",
+      "id": "store_name",
+      "label": "Store Name",
+      "default": "MEA'S SHOELLE"
+    },
+    {
+      "type": "text",
+      "id": "store_tagline",
+      "label": "Store Tagline",
+      "default": "step in style"
+    }
+  ]
+}
+{% endschema %}

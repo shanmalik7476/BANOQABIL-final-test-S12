@@ -1,0 +1,44 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "MEA'S SHOELLE - Step In Style",
+    "theme_version": "1.0.0",
+    "theme_author": "Developer",
+    "theme_documentation_url": "https://github.com/shanmalik7476/BANOQABIL-final-test-S12",
+    "theme_support_url": "https://github.com/shanmalik7476/BANOQABIL-final-test-S12"
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      {
+        "type": "color",
+        "id": "color_primary",
+        "label": "Primary Purple",
+        "default": "#5c248b"
+      },
+      {
+        "type": "color",
+        "id": "color_lavender_bg",
+        "label": "Lavender Background",
+        "default": "#e6dbf6"
+      }
+    ]
+  },
+  {
+    "name": "Typography",
+    "settings": [
+      {
+        "type": "font_picker",
+        "id": "font_heading",
+        "label": "Heading Font",
+        "default": "playfair_display_n7"
+      },
+      {
+        "type": "font_picker",
+        "id": "font_body",
+        "label": "Body Font",
+        "default": "sans-serif"
+      }
+    ]
+  }
+]

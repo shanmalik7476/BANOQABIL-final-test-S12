@@ -1,0 +1,16 @@
+{
+  "general": {
+    "accessibility": {
+      "skip_to_text": "Skip to content",
+      "close": "Close"
+    }
+  },
+  "sections": {
+    "header": {
+      "cart_count": {
+        "one": "{{ count }} item",
+        "other": "{{ count }} items"
+      }
+    }
+  }
+}

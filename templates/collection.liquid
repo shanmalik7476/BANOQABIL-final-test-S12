@@ -1,0 +1,14 @@
+<div class="container" style="padding: 60px 24px;">
+  <div style="text-align: center; margin-bottom: 40px;">
+    <h1 style="font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 700;">{{ collection.title | default: 'Our Shoe Collection' }}</h1>
+    <p style="color: var(--muted-text); font-size: 15px; margin-top: 8px;">Explore high-end footwear crafted for comfort, confidence, and elegance.</p>
+  </div>
+
+  <div class="products-grid">
+    {% render 'product-card', title: 'Pink Fur-Lined Winter Boot', price: '$59.99', boot_color: '#f09cb2' %}
+    {% render 'product-card', title: 'Puple Fur-Lined Winter Boot', price: '$49.99', boot_color: '#a980db' %}
+    {% render 'product-card', title: 'Red Fur-Lined Winter Boot', price: '$44.99', boot_color: '#9e1f37' %}
+    {% render 'product-card', title: 'Beige Fur-Lined Winter Boot', price: '$69.99', boot_color: '#d6be9a' %}
+    {% render 'product-card', title: 'Brown Fur-Lined Winter Boot', price: '$54.99', boot_color: '#9e6e4a' %}
+  </div>
+</div>

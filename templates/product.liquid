@@ -1,0 +1,28 @@
+<div class="container" style="padding: 60px 24px;">
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;">
+    <div style="background: #faf6fe; border-radius: 20px; padding: 40px; display: flex; justify-content: center;">
+      <svg viewBox="0 0 280 280" width="360" height="360" fill="none">
+        <rect width="280" height="280" fill="#fdfbfd" rx="12"/>
+        <path d="M95 105 C95 85 185 85 185 105 C195 115 185 130 180 135 C175 140 105 140 100 135 C95 130 85 115 95 105 Z" fill="#ffffff" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.08))"/>
+        <path d="M100 130 L105 200 C105 220 120 230 145 230 L200 230 C220 230 230 220 220 200 L180 130 Z" fill="#f09cb2"/>
+        <path d="M95 230 C95 220 115 220 145 220 L210 220 C235 220 240 235 230 245 L105 245 C95 245 95 235 95 230 Z" fill="#f8f4f0"/>
+        <circle cx="130" cy="150" r="2.5" fill="#ffffff"/><circle cx="150" cy="150" r="2.5" fill="#ffffff"/>
+      </svg>
+    </div>
+
+    <div>
+      <span style="font-size: 12px; font-weight: 800; letter-spacing: 1.5px; color: var(--primary-purple); text-transform: uppercase;">MEA'S SHOELLE EXCLUSIVE</span>
+      <h1 style="font-family: 'Playfair Display', serif; font-size: 38px; font-weight: 700; margin: 10px 0 16px;">{{ product.title | default: 'Fur-Lined Winter Boot' }}</h1>
+      <div style="color: var(--star-gold); margin-bottom: 16px;">★★★★★ <span style="color: var(--muted-text); font-size: 13px;">(48 reviews)</span></div>
+      <div style="font-size: 26px; font-weight: 800; color: var(--dark-text); margin-bottom: 24px;">$59.99</div>
+      <p style="color: var(--muted-text); line-height: 1.7; margin-bottom: 30px;">
+        Designed with plush faux-fur lining and a durable, slip-resistant lug sole. Offers all-day warmth and sophisticated chic styling.
+      </p>
+
+      <div style="display: flex; gap: 16px;">
+        <button type="button" class="btn-primary-purple" style="padding: 16px 36px; font-size: 15px;">ADD TO CART &rarr;</button>
+        <button type="button" class="btn-black-pill" style="padding: 16px 28px; font-size: 15px;">BUY NOW</button>
+      </div>
+    </div>
+  </div>
+</div>

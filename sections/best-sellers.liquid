@@ -1,0 +1,56 @@
+<section class="best-sellers-section">
+  <div class="container">
+    <h2 class="section-title">{{ section.settings.heading | default: 'BEST SELLERS' }}</h2>
+
+    <div class="products-grid">
+      <!-- 1. Pink Fur-Lined Winter Boot -->
+      {% render 'product-card',
+        title: 'Pink Fur-Lined Winter Boot',
+        price: '$59.99',
+        boot_color: '#f09cb2'
+      %}
+
+      <!-- 2. Puple Fur-Lined Winter Boot -->
+      {% render 'product-card',
+        title: 'Puple Fur-Lined Winter Boot',
+        price: '$49.99',
+        boot_color: '#a980db'
+      %}
+
+      <!-- 3. Red Fur-Lined Winter Boot -->
+      {% render 'product-card',
+        title: 'Red Fur-Lined Winter Boot',
+        price: '$44.99',
+        boot_color: '#9e1f37'
+      %}
+
+      <!-- 4. Beige Fur-Lined Winter Boot -->
+      {% render 'product-card',
+        title: 'Beige Fur-Lined Winter Boot',
+        price: '$69.99',
+        boot_color: '#d6be9a'
+      %}
+
+      <!-- 5. Brown Fur-Lined Winter Boot -->
+      {% render 'product-card',
+        title: 'Brown Fur-Lined Winter Boot',
+        price: '$54.99',
+        boot_color: '#9e6e4a'
+      %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Best Sellers",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "BEST SELLERS"
+    }
+  ]
+}
+{% endschema %}

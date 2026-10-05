@@ -1,0 +1,139 @@
+<section class="hero-section">
+  <!-- Architectural Ambient Lilac Arch -->
+  <div class="hero-background-arch"></div>
+
+  <div class="container">
+    <div class="hero-grid">
+      <!-- Left Content Column -->
+      <div class="hero-content">
+        <span class="hero-eyebrow">{{ section.settings.eyebrow_text | default: 'STEP INTO CONFIDENCE' }}</span>
+        
+        <h1 class="hero-title">
+          <span>Shoes That</span>
+          <span>Define you</span>
+        </h1>
+        
+        <p class="hero-subtitle">
+          {{ section.settings.subtitle_text | default: 'chic styles, premium comfort and elegance in every step.' }}
+        </p>
+
+        <div class="hero-button-group">
+          <a href="{{ section.settings.shop_now_link | default: '/collections/all' }}" class="btn-primary-purple">
+            {{ section.settings.shop_now_text | default: 'SHOP NOW' }} &rarr;
+          </a>
+          
+          <button type="button" class="btn-video-watch">
+            <span class="play-icon-circle">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+              </svg>
+            </span>
+            <span>watch video</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Right Visual Column (Purple & Neon Athletic Running Sneakers) -->
+      <div class="hero-media-wrapper">
+        <div class="hero-sneaker-container">
+          <svg class="hero-sneaker-img" viewBox="0 0 600 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="purpleBody" x1="100" y1="120" x2="520" y2="350" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#8033c4"/>
+                <stop offset="40%" stop-color="#641da8"/>
+                <stop offset="100%" stop-color="#460f7e"/>
+              </linearGradient>
+              <linearGradient id="neonGreenAccent" x1="200" y1="100" x2="480" y2="280" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#38ef7d"/>
+                <stop offset="100%" stop-color="#11998e"/>
+              </linearGradient>
+              <linearGradient id="soleWhite" x1="150" y1="260" x2="550" y2="380" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#ffffff"/>
+                <stop offset="70%" stop-color="#f0ebf8"/>
+                <stop offset="100%" stop-color="#d4c7ea"/>
+              </linearGradient>
+              <filter id="shadowFilter" x="40" y="320" width="520" height="90" filterUnits="userSpaceOnUse">
+                <feGaussianBlur stdDeviation="16" result="blur"/>
+                <feColorMatrix type="matrix" values="0 0 0 0 0.3   0 0 0 0 0.1   0 0 0 0 0.5  0 0 0 0.35 0"/>
+              </filter>
+            </defs>
+
+            <!-- Shadow underneath -->
+            <ellipse cx="320" cy="365" rx="230" ry="24" filter="url(#shadowFilter)"/>
+
+            <!-- Left Sneaker (Facing forward angle) -->
+            <g transform="translate(40, -10) rotate(-6 250 200)">
+              <!-- Upper mesh body -->
+              <path d="M120 280 C110 240 135 180 180 150 C240 110 320 90 380 150 C420 190 480 230 490 270 C500 310 460 320 400 320 L160 320 C130 320 125 300 120 280 Z" fill="url(#purpleBody)"/>
+
+              <!-- Neon Green Inner Collar & Accents -->
+              <path d="M340 125 C370 110 410 120 425 150 C410 170 380 175 350 165 Z" fill="url(#neonGreenAccent)"/>
+              <path d="M220 180 C260 160 300 170 340 190 C320 215 280 215 240 205 Z" fill="url(#neonGreenAccent)" opacity="0.9"/>
+              <path d="M160 230 L220 220 L210 250 L150 255 Z" fill="url(#neonGreenAccent)" opacity="0.85"/>
+
+              <!-- Tech Mesh Lines & Texture -->
+              <path d="M190 160 L180 220 M230 145 L220 225 M270 140 L260 235 M310 150 L300 240" stroke="#a86eed" stroke-width="3" stroke-linecap="round"/>
+              <path d="M370 170 L350 245 M410 200 L390 255 M440 230 L425 265" stroke="#a86eed" stroke-width="3.5" stroke-linecap="round"/>
+
+              <!-- White Laces -->
+              <path d="M250 170 C280 165 310 175 330 190" stroke="#ffffff" stroke-width="4.5" stroke-linecap="round"/>
+              <path d="M270 190 C300 185 330 195 350 210" stroke="#ffffff" stroke-width="4.5" stroke-linecap="round"/>
+              <path d="M290 210 C320 205 350 215 370 230" stroke="#ffffff" stroke-width="4.5" stroke-linecap="round"/>
+
+              <!-- Chunky Athletic Aerodynamic Outsole -->
+              <path d="M110 295 C120 270 150 270 190 275 C260 280 340 270 410 260 C460 250 500 265 505 295 C510 325 470 345 420 345 L170 345 C120 345 105 320 110 295 Z" fill="url(#soleWhite)"/>
+              
+              <!-- Sole Tread & Shock Absorber Cuts -->
+              <path d="M150 345 L170 310 L210 310 L230 345" fill="#3c1363"/>
+              <path d="M270 345 L290 310 L330 310 L350 345" fill="#3c1363"/>
+              <path d="M390 345 L410 315 L445 315 L460 345" fill="#3c1363"/>
+              <!-- Green Sole Cushion Insert -->
+              <rect x="235" y="322" width="30" height="12" rx="6" fill="url(#neonGreenAccent)"/>
+              <rect x="355" y="322" width="30" height="12" rx="6" fill="url(#neonGreenAccent)"/>
+            </g>
+
+            <!-- Second Sneaker (In Background, Tilted Pair) -->
+            <g transform="translate(190, 70) scale(0.72) rotate(15 250 200)" opacity="0.95">
+              <path d="M120 280 C110 240 135 180 180 150 C240 110 320 90 380 150 C420 190 480 230 490 270 C500 310 460 320 400 320 L160 320 C130 320 125 300 120 280 Z" fill="url(#purpleBody)"/>
+              <path d="M340 125 C370 110 410 120 425 150 C410 170 380 175 350 165 Z" fill="url(#neonGreenAccent)"/>
+              <path d="M110 295 C120 270 150 270 190 275 C260 280 340 270 410 260 C460 250 500 265 505 295 C510 325 470 345 420 345 L170 345 C120 345 105 320 110 295 Z" fill="url(#soleWhite)"/>
+              <path d="M150 345 L170 310 L210 310 L230 345" fill="#3c1363"/>
+              <path d="M270 345 L290 310 L330 310 L350 345" fill="#3c1363"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero Banner",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow_text",
+      "label": "Eyebrow Text",
+      "default": "STEP INTO CONFIDENCE"
+    },
+    {
+      "type": "text",
+      "id": "subtitle_text",
+      "label": "Subtitle",
+      "default": "chic styles, premium comfort and elegance in every step."
+    },
+    {
+      "type": "text",
+      "id": "shop_now_text",
+      "label": "Button Label",
+      "default": "SHOP NOW"
+    },
+    {
+      "type": "url",
+      "id": "shop_now_link",
+      "label": "Button Link"
+    }
+  ]
+}
+{% endschema %}

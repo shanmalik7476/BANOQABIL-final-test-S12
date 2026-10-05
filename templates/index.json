@@ -1,0 +1,43 @@
+{
+  "name": "Home page",
+  "sections": {
+    "hero_banner": {
+      "type": "hero-banner",
+      "settings": {
+        "eyebrow_text": "STEP INTO CONFIDENCE",
+        "subtitle_text": "chic styles, premium comfort and elegance in every step.",
+        "shop_now_text": "SHOP NOW"
+      }
+    },
+    "category_pills": {
+      "type": "category-pills",
+      "settings": {}
+    },
+    "best_sellers": {
+      "type": "best-sellers",
+      "settings": {
+        "heading": "BEST SELLERS"
+      }
+    },
+    "promo_banners": {
+      "type": "promo-banners",
+      "settings": {}
+    },
+    "features_bar": {
+      "type": "features-bar",
+      "settings": {}
+    },
+    "brand_logos": {
+      "type": "brand-logos",
+      "settings": {}
+    }
+  },
+  "order": [
+    "hero_banner",
+    "category_pills",
+    "best_sellers",
+    "promo_banners",
+    "features_bar",
+    "brand_logos"
+  ]
+}
