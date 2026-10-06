@@ -1,43 +1,48 @@
-<section class="best-sellers-section">
+{% comment %} Best Sellers Section - MEA'S SHOELLE {% endcomment %}
+<section id="best-sellers" class="best-sellers-section">
   <div class="container">
-    <h2 class="section-title">{{ section.settings.heading | default: 'BEST SELLERS' }}</h2>
+    <div class="section-header">
+      <span class="section-eyebrow">{{ section.settings.eyebrow }}</span>
+      <h2 class="section-title">{{ section.settings.title }}</h2>
+      <p class="section-subtitle">{{ section.settings.subtitle }}</p>
+    </div>
 
     <div class="products-grid">
-      <!-- 1. Pink Fur-Lined Winter Boot -->
-      {% render 'product-card',
-        title: 'Pink Fur-Lined Winter Boot',
-        price: '$59.99',
-        boot_color: '#f09cb2'
-      %}
-
-      <!-- 2. Puple Fur-Lined Winter Boot -->
-      {% render 'product-card',
-        title: 'Puple Fur-Lined Winter Boot',
-        price: '$49.99',
-        boot_color: '#a980db'
-      %}
-
-      <!-- 3. Red Fur-Lined Winter Boot -->
-      {% render 'product-card',
-        title: 'Red Fur-Lined Winter Boot',
-        price: '$44.99',
-        boot_color: '#9e1f37'
-      %}
-
-      <!-- 4. Beige Fur-Lined Winter Boot -->
-      {% render 'product-card',
-        title: 'Beige Fur-Lined Winter Boot',
-        price: '$69.99',
-        boot_color: '#d6be9a'
-      %}
-
-      <!-- 5. Brown Fur-Lined Winter Boot -->
-      {% render 'product-card',
-        title: 'Brown Fur-Lined Winter Boot',
-        price: '$54.99',
-        boot_color: '#9e6e4a'
-      %}
+      {%- for product in collections[section.settings.collection].products limit: section.settings.products_count -%}
+        {% render 'product-card', product: product %}
+      {%- else -%}
+        {%- for i in (1..8) -%}
+          <div class="product-card">
+            <div class="product-media">
+              {{ 'product-' | append: i | placeholder_svg_tag: 'product-img' }}
+            </div>
+            <div class="product-info">
+              <h3 class="product-name"><a href="#">Sample Product {{ i }}</a></h3>
+              <div class="product-rating">
+                <div class="stars">★★★★★</div>
+                <span class="rating-count">(50)</span>
+              </div>
+              <div class="product-footer">
+                <div class="price-group">
+                  <span class="price-main">$49.99</span>
+                </div>
+                <button class="add-to-cart-btn" aria-label="Add to cart">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        {%- endfor -%}
+      {%- endfor -%}
     </div>
+
+    {% if section.settings.show_view_all %}
+      <div style="text-align:center;margin-top:44px;">
+        <a href="{{ routes.collections_url }}" class="btn-hero-primary" style="display:inline-flex;align-items:center;gap:8px;background:var(--purple);color:#fff;padding:14px 36px;border-radius:999px;font-weight:800;font-size:13px;letter-spacing:1px;text-transform:uppercase;">
+          View All Products →
+        </a>
+      </div>
+    {% endif %}
   </div>
 </section>
 
@@ -45,12 +50,13 @@
 {
   "name": "Best Sellers",
   "settings": [
-    {
-      "type": "text",
-      "id": "heading",
-      "label": "Heading",
-      "default": "BEST SELLERS"
-    }
-  ]
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow Text", "default": "Our Collection" },
+    { "type": "text", "id": "title", "label": "Section Title", "default": "Best Sellers" },
+    { "type": "text", "id": "subtitle", "label": "Subtitle", "default": "Hand-picked top styles loved by thousands of customers worldwide." },
+    { "type": "collection", "id": "collection", "label": "Collection" },
+    { "type": "range", "id": "products_count", "min": 4, "max": 12, "step": 2, "label": "Products to show", "default": 8 },
+    { "type": "checkbox", "id": "show_view_all", "label": "Show View All button", "default": true }
+  ],
+  "presets": [{ "name": "Best Sellers" }]
 }
 {% endschema %}
