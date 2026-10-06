@@ -3,698 +3,2398 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MEA'S SHOELLE &ndash; Shoes That Define You | Step In Style</title>
-  <meta name="description" content="Shop chic styles, premium comfort, and elegance in every step. Explore our fur-lined winter boots, sneakers, heels and more at MEA'S SHOELLE.">
-  
+  <title>MEA'S SHOELLE &ndash; Step In Style | Premium Footwear Store</title>
+  <meta name="description" content="Shop chic styles, premium comfort and elegance in every step. Explore fur-lined winter boots, sneakers, heels and more at MEA'S SHOELLE.">
+
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- Main Theme Stylesheet -->
-  <link rel="stylesheet" href="assets/theme.css">
+  <style>
+    /* =========================================
+       RESET & BASE
+    ========================================= */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --purple:       #5c1a9e;
+      --purple-dark:  #3e0d72;
+      --purple-light: #7e3ec4;
+      --lavender:     #c9a9f0;
+      --lavender-bg:  #f2ebfb;
+      --lilac:        #e9ddf8;
+      --lilac-hero:   #d8c4f5;
+      --gold:         #f59e0b;
+      --dark:         #12102a;
+      --mid:          #3d3660;
+      --muted:        #6b6580;
+      --white:        #ffffff;
+      --off-white:    #faf8fd;
+      --border:       rgba(92,26,158,0.08);
+      --radius-card:  20px;
+      --radius-pill:  999px;
+      --shadow-sm:    0 4px 16px rgba(92,26,158,0.08);
+      --shadow-md:    0 10px 36px rgba(92,26,158,0.14);
+      --shadow-lg:    0 20px 60px rgba(92,26,158,0.18);
+      --transition:   0.3s cubic-bezier(0.25,0.8,0.25,1);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: var(--dark);
+      background: #fff;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    a { text-decoration: none; color: inherit; transition: var(--transition); }
+    button { cursor: pointer; border: none; background: none; font-family: inherit; transition: var(--transition); }
+    img { max-width: 100%; display: block; }
+
+    .container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    /* =========================================
+       HEADER
+    ========================================= */
+    .site-header {
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      padding: 0;
+    }
+
+    .header-top-bar {
+      background: linear-gradient(90deg, var(--purple-dark), var(--purple));
+      color: #fff;
+      text-align: center;
+      font-size: 12.5px;
+      font-weight: 600;
+      letter-spacing: 0.8px;
+      padding: 8px 0;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 28px;
+      max-width: 1240px;
+      margin: 0 auto;
+    }
+
+    /* Logo */
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+    }
+
+    .logo-icon-svg {
+      width: 42px;
+      height: 42px;
+    }
+
+    .logo-text-group {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .logo-title {
+      font-family: 'Playfair Display', serif;
+      font-weight: 800;
+      font-size: 18px;
+      color: var(--purple-dark);
+      letter-spacing: 0.5px;
+    }
+
+    .logo-tagline {
+      font-size: 10px;
+      letter-spacing: 2.5px;
+      color: var(--muted);
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    /* Nav */
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .nav-link {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: var(--mid);
+      text-transform: uppercase;
+      position: relative;
+      padding-bottom: 2px;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--purple);
+      border-radius: 2px;
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after { width: 100%; }
+    .nav-link:hover, .nav-link.active { color: var(--purple); }
+
+    /* Header actions */
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .header-icon-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      color: var(--mid);
+      position: relative;
+      transition: var(--transition);
+    }
+
+    .header-icon-btn svg { width: 19px; height: 19px; }
+
+    .header-icon-btn:hover {
+      background: var(--lavender-bg);
+      color: var(--purple);
+    }
+
+    .cart-badge {
+      position: absolute;
+      top: 4px;
+      right: 4px;
+      width: 17px;
+      height: 17px;
+      background: var(--purple);
+      color: #fff;
+      border-radius: 50%;
+      font-size: 9px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* =========================================
+       HERO SECTION
+    ========================================= */
+    .hero-section {
+      background: linear-gradient(135deg, #4d0e87 0%, #7b2fbf 40%, #a358e8 70%, #c99cf7 100%);
+      min-height: 580px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 80% at 70% 50%, rgba(255,255,255,0.12) 0%, transparent 70%);
+    }
+
+    /* Decorative circles */
+    .hero-deco-circle {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.06);
+    }
+    .hero-deco-circle.c1 { width: 420px; height: 420px; right: -80px; top: -80px; }
+    .hero-deco-circle.c2 { width: 280px; height: 280px; right: 140px; bottom: -60px; background: rgba(255,255,255,0.04); }
+    .hero-deco-circle.c3 { width: 160px; height: 160px; left: 80px; bottom: -30px; }
+
+    .hero-inner {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 70px 28px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 40px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-content { color: #fff; }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 18px;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 30px;
+      height: 2px;
+      background: rgba(255,255,255,0.7);
+      border-radius: 2px;
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(42px, 5.5vw, 68px);
+      font-weight: 800;
+      line-height: 1.1;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: #f3dcff;
+    }
+
+    .hero-subtitle {
+      font-size: 16px;
+      color: rgba(255,255,255,0.82);
+      max-width: 400px;
+      margin-bottom: 36px;
+      line-height: 1.7;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .btn-hero-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #fff;
+      color: var(--purple-dark);
+      padding: 14px 32px;
+      border-radius: var(--radius-pill);
+      font-weight: 800;
+      font-size: 13px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      box-shadow: 0 8px 28px rgba(0,0,0,0.2);
+      transition: var(--transition);
+    }
+
+    .btn-hero-primary:hover {
+      background: var(--dark);
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 14px 36px rgba(0,0,0,0.28);
+    }
+
+    .btn-hero-video {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: #fff;
+      font-weight: 600;
+      font-size: 13px;
+    }
+
+    .play-circle {
+      width: 44px;
+      height: 44px;
+      border: 2px solid rgba(255,255,255,0.6);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+
+    .btn-hero-video:hover .play-circle {
+      background: rgba(255,255,255,0.15);
+      border-color: #fff;
+    }
+
+    /* Hero stats */
+    .hero-stats {
+      display: flex;
+      gap: 28px;
+      margin-top: 48px;
+    }
+
+    .hero-stat { }
+
+    .hero-stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1;
+    }
+
+    .hero-stat-label {
+      font-size: 11px;
+      color: rgba(255,255,255,0.7);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-top: 3px;
+    }
+
+    .stat-divider {
+      width: 1px;
+      background: rgba(255,255,255,0.25);
+      align-self: stretch;
+    }
+
+    /* Hero image */
+    .hero-image-col {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .hero-image-glow {
+      position: absolute;
+      width: 360px;
+      height: 360px;
+      background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .hero-main-img {
+      width: 420px;
+      max-width: 100%;
+      filter: drop-shadow(0 20px 50px rgba(0,0,0,0.3));
+      position: relative;
+      z-index: 2;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-12px); }
+    }
+
+    /* Hero badge */
+    .hero-badge {
+      position: absolute;
+      top: 40px;
+      right: 20px;
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 16px;
+      padding: 12px 18px;
+      color: #fff;
+      text-align: center;
+      z-index: 3;
+    }
+
+    .hero-badge-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 26px;
+      font-weight: 800;
+      display: block;
+      line-height: 1;
+    }
+
+    .hero-badge-text {
+      font-size: 10px;
+      letter-spacing: 1px;
+      opacity: 0.85;
+      text-transform: uppercase;
+    }
+
+    /* =========================================
+       CATEGORY PILLS
+    ========================================= */
+    .category-section {
+      padding: 0 28px;
+      margin: -28px auto 0;
+      max-width: 1240px;
+      position: relative;
+      z-index: 10;
+    }
+
+    .category-card {
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: var(--shadow-lg);
+      padding: 24px 32px;
+      display: flex;
+      align-items: center;
+      gap: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .category-card::-webkit-scrollbar { display: none; }
+
+    .category-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 24px;
+      border-radius: 14px;
+      color: var(--muted);
+      transition: var(--transition);
+      flex-shrink: 0;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .category-item:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 20%;
+      height: 60%;
+      width: 1px;
+      background: var(--border);
+    }
+
+    .category-item:hover {
+      background: var(--lavender-bg);
+      color: var(--purple);
+    }
+
+    .cat-icon-circle {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: var(--lavender-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--purple);
+      transition: var(--transition);
+    }
+
+    .category-item:hover .cat-icon-circle {
+      background: var(--purple);
+      color: #fff;
+    }
+
+    .cat-icon-circle svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .cat-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: capitalize;
+      white-space: nowrap;
+    }
+
+    /* =========================================
+       SECTION HEADERS
+    ========================================= */
+    .section-header {
+      text-align: center;
+      margin-bottom: 44px;
+    }
+
+    .section-eyebrow {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--purple);
+      background: var(--lavender-bg);
+      padding: 6px 18px;
+      border-radius: var(--radius-pill);
+      margin-bottom: 14px;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 3.5vw, 42px);
+      font-weight: 800;
+      color: var(--dark);
+      line-height: 1.2;
+    }
+
+    .section-subtitle {
+      font-size: 15px;
+      color: var(--muted);
+      margin-top: 10px;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* =========================================
+       BEST SELLERS / PRODUCTS GRID
+    ========================================= */
+    .best-sellers-section {
+      padding: 88px 0 80px;
+      background: var(--off-white);
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .product-card {
+      background: #fff;
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .product-badges {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: var(--radius-pill);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .badge-new { background: var(--purple); color: #fff; }
+    .badge-sale { background: #ef4444; color: #fff; }
+    .badge-hot { background: var(--gold); color: #fff; }
+
+    .wishlist-btn {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      z-index: 3;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.9);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      transition: var(--transition);
+    }
+
+    .wishlist-btn:hover {
+      background: #fff;
+      color: #ef4444;
+      border-color: #ef4444;
+    }
+
+    .wishlist-btn svg { width: 15px; height: 15px; }
+
+    .product-media {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%);
+      aspect-ratio: 1/1;
+    }
+
+    .product-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .product-card:hover .product-img {
+      transform: scale(1.05);
+    }
+
+    /* Hover overlay */
+    .product-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(92,26,158,0.07);
+      opacity: 0;
+      transition: var(--transition);
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding-bottom: 18px;
+    }
+
+    .product-card:hover .product-overlay { opacity: 1; }
+
+    .quick-add-btn {
+      background: var(--purple);
+      color: #fff;
+      padding: 10px 22px;
+      border-radius: var(--radius-pill);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      transform: translateY(8px);
+      transition: var(--transition);
+    }
+
+    .product-card:hover .quick-add-btn {
+      transform: translateY(0);
+    }
+
+    .product-info {
+      padding: 18px 18px 16px;
+    }
+
+    .product-name {
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--dark);
+      margin-bottom: 6px;
+      line-height: 1.3;
+    }
+
+    .product-name a:hover { color: var(--purple); }
+
+    .product-rating {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin-bottom: 10px;
+    }
+
+    .stars {
+      display: flex;
+      gap: 1px;
+    }
+
+    .stars svg { width: 12px; height: 12px; fill: var(--gold); }
+
+    .rating-count {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .product-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .price-group { display: flex; align-items: baseline; gap: 6px; }
+
+    .price-main {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--purple-dark);
+    }
+
+    .price-old {
+      font-size: 13px;
+      color: var(--muted);
+      text-decoration: line-through;
+    }
+
+    .add-to-cart-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--purple);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+      box-shadow: 0 4px 12px rgba(92,26,158,0.3);
+    }
+
+    .add-to-cart-btn:hover {
+      background: var(--purple-dark);
+      transform: scale(1.1);
+    }
+
+    .add-to-cart-btn svg { width: 15px; height: 15px; }
+
+    /* Color swatches */
+    .product-colors {
+      display: flex;
+      gap: 5px;
+      margin-bottom: 8px;
+    }
+
+    .color-swatch {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      border: 1px solid rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .color-swatch:hover { transform: scale(1.2); }
+    .color-swatch.active { box-shadow: 0 0 0 2px #fff, 0 0 0 3.5px var(--purple); }
+
+    /* =========================================
+       PROMO BANNERS
+    ========================================= */
+    .promo-section {
+      padding: 80px 0;
+    }
+
+    .promo-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .promo-card {
+      border-radius: 24px;
+      overflow: hidden;
+      position: relative;
+      min-height: 360px;
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .promo-card-bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      transition: transform 0.6s ease;
+    }
+
+    .promo-card:hover .promo-card-bg { transform: scale(1.04); }
+
+    .promo-card-overlay {
+      position: absolute;
+      inset: 0;
+    }
+
+    .promo-card-content {
+      position: relative;
+      z-index: 2;
+      padding: 36px;
+      width: 100%;
+    }
+
+    /* Promo 1: Fresh Styles */
+    .promo-card-1 .promo-card-bg {
+      background: linear-gradient(135deg, #1a0a2e 0%, #4d0e87 35%, #8832d0 65%, #c48af0 100%);
+    }
+
+    .promo-card-1 .promo-card-overlay {
+      background: linear-gradient(to top, rgba(20,5,40,0.85) 0%, rgba(20,5,40,0.3) 60%, transparent 100%);
+    }
+
+    /* Promo 2: Special Offer */
+    .promo-card-2 .promo-card-bg {
+      background: linear-gradient(135deg, #0d0d1a 0%, #1a1044 40%, #2d1580 70%, #5e35c2 100%);
+    }
+
+    .promo-card-2 .promo-card-overlay {
+      background: linear-gradient(to top, rgba(10,5,30,0.88) 0%, rgba(10,5,30,0.3) 60%, transparent 100%);
+    }
+
+    .promo-badge-pill {
+      display: inline-block;
+      background: var(--purple);
+      color: #fff;
+      padding: 5px 16px;
+      border-radius: var(--radius-pill);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .promo-tagline {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .promo-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(26px, 3vw, 38px);
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.15;
+      margin-bottom: 12px;
+    }
+
+    .promo-text {
+      color: rgba(255,255,255,0.75);
+      font-size: 14px;
+      margin-bottom: 24px;
+    }
+
+    .btn-promo {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 28px;
+      border-radius: var(--radius-pill);
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: var(--transition);
+    }
+
+    .btn-promo-white {
+      background: #fff;
+      color: var(--purple-dark);
+    }
+
+    .btn-promo-white:hover {
+      background: var(--purple);
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn-promo-purple {
+      background: var(--purple);
+      color: #fff;
+    }
+
+    .btn-promo-purple:hover {
+      background: var(--purple-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(92,26,158,0.4);
+    }
+
+    /* Promo shoe illustration */
+    .promo-shoe-display {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 200px;
+      filter: drop-shadow(0 10px 30px rgba(0,0,0,0.4));
+    }
+
+    .discount-badge {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      width: 72px;
+      height: 72px;
+      background: var(--purple);
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      box-shadow: 0 6px 20px rgba(92,26,158,0.5);
+      z-index: 5;
+    }
+
+    .disc-num {
+      font-size: 22px;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .disc-off {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    /* Promo shoes SVG */
+    .promo-shoes-artwork {
+      position: absolute;
+      right: -10px;
+      top: 50%;
+      transform: translateY(-48%);
+      width: 180px;
+      z-index: 3;
+    }
+
+    /* =========================================
+       FEATURES BAR
+    ========================================= */
+    .features-section {
+      padding: 60px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0;
+    }
+
+    .feature-box {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 0 28px;
+      position: relative;
+    }
+
+    .feature-box:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 10%;
+      height: 80%;
+      width: 1px;
+      background: var(--border);
+    }
+
+    .feat-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: var(--lavender-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--purple);
+      flex-shrink: 0;
+    }
+
+    .feat-icon svg { width: 22px; height: 22px; }
+
+    .feat-content { }
+
+    .feat-title {
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--dark);
+      display: block;
+    }
+
+    .feat-subtitle {
+      font-size: 12px;
+      color: var(--muted);
+      display: block;
+    }
+
+    /* =========================================
+       BRAND LOGOS
+    ========================================= */
+    .brands-section {
+      padding: 56px 0;
+      background: var(--off-white);
+    }
+
+    .brands-label {
+      text-align: center;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+
+    .brands-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .brand-item {
+      color: #b0a8c4;
+      transition: var(--transition);
+      filter: grayscale(1) opacity(0.5);
+      display: flex;
+      align-items: center;
+    }
+
+    .brand-item:hover {
+      color: var(--purple);
+      filter: none;
+    }
+
+    /* =========================================
+       FOOTER
+    ========================================= */
+    .site-footer {
+      background: #0e0920;
+      color: rgba(255,255,255,0.75);
+      padding: 72px 0 0;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.8fr 1fr 1fr 1fr 1.4fr;
+      gap: 40px;
+      padding-bottom: 60px;
+    }
+
+    .footer-brand-col { }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .footer-logo-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 17px;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .footer-brand-desc {
+      font-size: 13.5px;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.55);
+      max-width: 280px;
+    }
+
+    .newsletter-form {
+      margin-top: 22px;
+      display: flex;
+      gap: 0;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius-pill);
+      overflow: hidden;
+    }
+
+    .newsletter-input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      outline: none;
+      padding: 12px 18px;
+      font-size: 13px;
+      font-family: inherit;
+      color: #fff;
+    }
+
+    .newsletter-input::placeholder { color: rgba(255,255,255,0.4); }
+
+    .newsletter-submit {
+      background: var(--purple);
+      color: #fff;
+      padding: 12px 20px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      cursor: pointer;
+      border: none;
+      font-family: inherit;
+      white-space: nowrap;
+      transition: var(--transition);
+    }
+
+    .newsletter-submit:hover { background: var(--purple-dark); }
+
+    .footer-col-title {
+      color: #fff;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      position: relative;
+      padding-bottom: 12px;
+    }
+
+    .footer-col-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 28px;
+      height: 2px;
+      background: var(--purple);
+      border-radius: 2px;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-links a {
+      font-size: 13.5px;
+      color: rgba(255,255,255,0.55);
+      transition: var(--transition);
+    }
+
+    .footer-links a:hover {
+      color: #fff;
+      padding-left: 5px;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+
+    .social-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: rgba(255,255,255,0.65);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+
+    .social-btn:hover {
+      background: var(--purple);
+      border-color: var(--purple);
+      color: #fff;
+    }
+
+    .social-btn svg { width: 15px; height: 15px; }
+
+    .payment-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 12px;
+    }
+
+    .payment-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .pay-badge {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 6px;
+      padding: 5px 12px;
+      font-size: 12px;
+      font-weight: 800;
+      color: rgba(255,255,255,0.75);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.07);
+      padding: 20px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-copy {
+      font-size: 12.5px;
+      color: rgba(255,255,255,0.35);
+    }
+
+    .footer-bottom-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-bottom-links a {
+      font-size: 12px;
+      color: rgba(255,255,255,0.35);
+    }
+
+    .footer-bottom-links a:hover { color: rgba(255,255,255,0.7); }
+
+    /* =========================================
+       TOAST NOTIFICATION
+    ========================================= */
+    .toast {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      background: var(--purple-dark);
+      color: #fff;
+      padding: 14px 22px;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 600;
+      box-shadow: var(--shadow-lg);
+      z-index: 9999;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.4s cubic-bezier(0.34,1.56,0.64,1);
+    }
+
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* =========================================
+       RESPONSIVE
+    ========================================= */
+    @media (max-width: 1024px) {
+      .products-grid { grid-template-columns: repeat(3, 1fr); }
+      .features-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+      .feature-box::after { display: none; }
+      .feature-box { padding: 16px 0; }
+      .footer-grid { grid-template-columns: 1fr 1fr 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .hero-inner { grid-template-columns: 1fr; text-align: center; }
+      .hero-image-col { display: none; }
+      .nav-menu { display: none; }
+      .products-grid { grid-template-columns: repeat(2, 1fr); }
+      .promo-grid { grid-template-columns: 1fr; }
+      .features-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .brands-row { justify-content: center; }
+    }
+
+    @media (max-width: 480px) {
+      .products-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .hero-cta-group { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
 </head>
 <body>
 
+  <!-- Toast -->
+  <div class="toast" id="toast" role="alert" aria-live="polite"></div>
+
   <!-- ==========================================
-       HEADER / NAVBAR
-       ========================================== -->
+       HEADER
+  ========================================== -->
   <header class="site-header">
-    <div class="container header-container">
-      <!-- Brand Logo -->
+    <div class="header-top-bar">
+      ✦ FREE SHIPPING ON ORDERS OVER $100 &nbsp;|&nbsp; USE CODE: <strong>WELCOME15</strong> FOR 15% OFF &nbsp;✦
+    </div>
+    <div class="header-inner">
+
+      <!-- Logo -->
       <a href="index.html" class="brand-logo">
-        <div class="logo-icon">
-          <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M6 28C10 28 14 26 17 22L20 18C21.5 16 23.5 15 26 15H30V19C28 19 26.5 20 25 21.5L22 24.5C18 28.5 13 30 6 30V28Z" fill="#5c248b"/>
-            <path d="M29 15V29H26V17C27 16 28 15.5 29 15Z" fill="#5c248b"/>
-            <path d="M3 24C8 24 13 22 16 18" stroke="#7b3eb8" stroke-width="2.5" stroke-linecap="round"/>
-            <path d="M2 19C6 19 10 17 13 14" stroke="#a768e6" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-        </div>
+        <svg class="logo-icon-svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="48" height="48" rx="14" fill="#5c1a9e"/>
+          <path d="M10 34C15 34 20 32 23 27L26 22C28 19 30 17 34 17H39V22C36 22 34 23.5 32 25.5L28 29.5C23 35 17 36 10 36V34Z" fill="#fff"/>
+          <path d="M38 17V36H34V20C35.5 19 37 18 38 17Z" fill="#fff" opacity="0.7"/>
+          <path d="M8 30C14 30 19 27 22 23" stroke="rgba(255,255,255,0.5)" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
         <div class="logo-text-group">
           <span class="logo-title">MEA'S SHOELLE</span>
           <span class="logo-tagline">step in style</span>
         </div>
       </a>
 
-      <!-- Navigation Menu -->
-      <nav class="nav-menu" aria-label="Main Navigation">
-        <a href="index.html" class="nav-link active">HOME</a>
-        <a href="#shop" class="nav-link">SHOP</a>
-        <a href="#pages" class="nav-link">PAGES</a>
-        <a href="#blog" class="nav-link">BLOG</a>
-        <a href="#element" class="nav-link">ELEMENT</a>
-        <a href="#buy" class="nav-link">BUY</a>
+      <!-- Nav -->
+      <nav class="nav-menu" aria-label="Main navigation">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="#shop" class="nav-link">Shop</a>
+        <a href="#" class="nav-link">Pages</a>
+        <a href="#" class="nav-link">Blog</a>
+        <a href="#" class="nav-link">Element</a>
+        <a href="#" class="nav-link">Buy</a>
       </nav>
 
-      <!-- Header Actions / Icons -->
+      <!-- Actions -->
       <div class="header-actions">
-        <!-- User Account -->
-        <a href="#account" class="header-icon-btn" aria-label="Account">
+        <a href="#account" class="header-icon-btn" aria-label="My Account">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-            <circle cx="12" cy="7" r="4"></circle>
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
           </svg>
         </a>
-
-        <!-- Wishlist -->
         <a href="#wishlist" class="header-icon-btn" aria-label="Wishlist">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
           </svg>
         </a>
-
-        <!-- Search -->
         <button type="button" class="header-icon-btn" aria-label="Search">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="11" cy="11" r="8"></circle>
-            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
           </svg>
         </button>
-
-        <!-- Cart -->
-        <a href="#cart" class="header-icon-btn" aria-label="Shopping Cart">
+        <a href="#cart" class="header-icon-btn" aria-label="Cart" style="position:relative">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="9" cy="21" r="1"></circle>
-            <circle cx="20" cy="21" r="1"></circle>
-            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+            <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
           </svg>
-          <span class="cart-count-badge">0</span>
+          <span class="cart-badge" id="cart-count">0</span>
         </a>
       </div>
+
     </div>
   </header>
 
   <!-- ==========================================
-       HERO BANNER SECTION
-       ========================================== -->
-  <section class="hero-section">
-    <div class="hero-background-arch"></div>
+       HERO SECTION
+  ========================================== -->
+  <section class="hero-section" aria-label="Hero banner">
+    <!-- Decorative circles -->
+    <div class="hero-deco-circle c1"></div>
+    <div class="hero-deco-circle c2"></div>
+    <div class="hero-deco-circle c3"></div>
 
-    <div class="container">
-      <div class="hero-grid">
-        <!-- Content Column -->
-        <div class="hero-content">
-          <span class="hero-eyebrow">STEP INTO COFIDENCE</span>
-          
-          <h1 class="hero-title">
-            <span>Shoes That</span>
-            <span>Define you</span>
-          </h1>
-          
-          <p class="hero-subtitle">
-            chic styles, premium comfort and elegance in every step.
-          </p>
-
-          <div class="hero-button-group">
-            <a href="#shop" class="btn-primary-purple">
-              SHOP NOW &rarr;
-            </a>
-            
-            <button type="button" class="btn-video-watch">
-              <span class="play-icon-circle">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                </svg>
-              </span>
-              <span>watch video</span>
-            </button>
-          </div>
+    <div class="hero-inner">
+      <!-- Content -->
+      <div class="hero-content">
+        <span class="hero-eyebrow">New Collection 2025</span>
+        <h1 class="hero-title">
+          Shoes That<br>
+          <em>Define You</em>
+        </h1>
+        <p class="hero-subtitle">
+          Chic styles, premium comfort and elegance in every step. From fur-lined boots to sleek heels — find your perfect pair.
+        </p>
+        <div class="hero-cta-group">
+          <a href="#shop" class="btn-hero-primary">
+            Shop Now
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <button type="button" class="btn-hero-video" aria-label="Watch our video">
+            <span class="play-circle">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </span>
+            <span>Watch Video</span>
+          </button>
         </div>
 
-        <!-- Sneaker Illustration / Visual -->
-        <div class="hero-media-wrapper">
-          <div class="hero-sneaker-container">
-            <svg class="hero-sneaker-img" viewBox="0 0 600 420" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <linearGradient id="purpleBody" x1="100" y1="120" x2="520" y2="350" gradientUnits="userSpaceOnUse">
-                  <stop offset="0%" stop-color="#8033c4"/>
-                  <stop offset="40%" stop-color="#641da8"/>
-                  <stop offset="100%" stop-color="#460f7e"/>
-                </linearGradient>
-                <linearGradient id="neonGreenAccent" x1="200" y1="100" x2="480" y2="280" gradientUnits="userSpaceOnUse">
-                  <stop offset="0%" stop-color="#38ef7d"/>
-                  <stop offset="100%" stop-color="#11998e"/>
-                </linearGradient>
-                <linearGradient id="soleWhite" x1="150" y1="260" x2="550" y2="380" gradientUnits="userSpaceOnUse">
-                  <stop offset="0%" stop-color="#ffffff"/>
-                  <stop offset="70%" stop-color="#f0ebf8"/>
-                  <stop offset="100%" stop-color="#d4c7ea"/>
-                </linearGradient>
-                <filter id="shadowFilter" x="40" y="320" width="520" height="90" filterUnits="userSpaceOnUse">
-                  <feGaussianBlur stdDeviation="16" result="blur"/>
-                  <feColorMatrix type="matrix" values="0 0 0 0 0.3   0 0 0 0 0.1   0 0 0 0 0.5  0 0 0 0.35 0"/>
-                </filter>
-              </defs>
-
-              <ellipse cx="320" cy="365" rx="230" ry="24" filter="url(#shadowFilter)"/>
-
-              <!-- Main Front Sneaker -->
-              <g transform="translate(40, -10) rotate(-6 250 200)">
-                <path d="M120 280 C110 240 135 180 180 150 C240 110 320 90 380 150 C420 190 480 230 490 270 C500 310 460 320 400 320 L160 320 C130 320 125 300 120 280 Z" fill="url(#purpleBody)"/>
-                <path d="M340 125 C370 110 410 120 425 150 C410 170 380 175 350 165 Z" fill="url(#neonGreenAccent)"/>
-                <path d="M220 180 C260 160 300 170 340 190 C320 215 280 215 240 205 Z" fill="url(#neonGreenAccent)" opacity="0.9"/>
-                <path d="M160 230 L220 220 L210 250 L150 255 Z" fill="url(#neonGreenAccent)" opacity="0.85"/>
-                <path d="M190 160 L180 220 M230 145 L220 225 M270 140 L260 235 M310 150 L300 240" stroke="#a86eed" stroke-width="3" stroke-linecap="round"/>
-                <path d="M370 170 L350 245 M410 200 L390 255 M440 230 L425 265" stroke="#a86eed" stroke-width="3.5" stroke-linecap="round"/>
-                <path d="M250 170 C280 165 310 175 330 190" stroke="#ffffff" stroke-width="4.5" stroke-linecap="round"/>
-                <path d="M270 190 C300 185 330 195 350 210" stroke="#ffffff" stroke-width="4.5" stroke-linecap="round"/>
-                <path d="M290 210 C320 205 350 215 370 230" stroke="#ffffff" stroke-width="4.5" stroke-linecap="round"/>
-                <path d="M110 295 C120 270 150 270 190 275 C260 280 340 270 410 260 C460 250 500 265 505 295 C510 325 470 345 420 345 L170 345 C120 345 105 320 110 295 Z" fill="url(#soleWhite)"/>
-                <path d="M150 345 L170 310 L210 310 L230 345" fill="#3c1363"/>
-                <path d="M270 345 L290 310 L330 310 L350 345" fill="#3c1363"/>
-                <path d="M390 345 L410 315 L445 315 L460 345" fill="#3c1363"/>
-                <rect x="235" y="322" width="30" height="12" rx="6" fill="url(#neonGreenAccent)"/>
-                <rect x="355" y="322" width="30" height="12" rx="6" fill="url(#neonGreenAccent)"/>
-              </g>
-
-              <!-- Secondary Sneaker Pair -->
-              <g transform="translate(190, 70) scale(0.72) rotate(15 250 200)" opacity="0.95">
-                <path d="M120 280 C110 240 135 180 180 150 C240 110 320 90 380 150 C420 190 480 230 490 270 C500 310 460 320 400 320 L160 320 C130 320 125 300 120 280 Z" fill="url(#purpleBody)"/>
-                <path d="M340 125 C370 110 410 120 425 150 C410 170 380 175 350 165 Z" fill="url(#neonGreenAccent)"/>
-                <path d="M110 295 C120 270 150 270 190 275 C260 280 340 270 410 260 C460 250 500 265 505 295 C510 325 470 345 420 345 L170 345 C120 345 105 320 110 295 Z" fill="url(#soleWhite)"/>
-                <path d="M150 345 L170 310 L210 310 L230 345" fill="#3c1363"/>
-                <path d="M270 345 L290 310 L330 310 L350 345" fill="#3c1363"/>
-              </g>
-            </svg>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="hero-stat-number">5K+</div>
+            <div class="hero-stat-label">Happy Customers</div>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="hero-stat">
+            <div class="hero-stat-number">200+</div>
+            <div class="hero-stat-label">Shoe Styles</div>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="hero-stat">
+            <div class="hero-stat-number">4.9★</div>
+            <div class="hero-stat-label">Average Rating</div>
           </div>
         </div>
+      </div>
+
+      <!-- Hero Visual -->
+      <div class="hero-image-col" aria-hidden="true">
+        <div class="hero-image-glow"></div>
+
+        <!-- Floating badge -->
+        <div class="hero-badge">
+          <span class="hero-badge-num">15%</span>
+          <span class="hero-badge-text">Off First Order</span>
+        </div>
+
+        <!-- Shoe SVG illustration -->
+        <svg class="hero-main-img" viewBox="0 0 520 380" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="hShoeBody" x1="60" y1="100" x2="460" y2="330" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#9b3de8"/>
+              <stop offset="50%" stop-color="#6d1fc4"/>
+              <stop offset="100%" stop-color="#420b90"/>
+            </linearGradient>
+            <linearGradient id="hSole" x1="80" y1="280" x2="480" y2="360" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#f5f0ff"/>
+              <stop offset="100%" stop-color="#ddd2f5"/>
+            </linearGradient>
+            <linearGradient id="hFur" x1="100" y1="90" x2="400" y2="150" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#fffaf5"/>
+              <stop offset="100%" stop-color="#ede8ff"/>
+            </linearGradient>
+            <filter id="hShadow">
+              <feGaussianBlur stdDeviation="18"/>
+              <feColorMatrix type="matrix" values="0 0 0 0 0.35  0 0 0 0 0.1  0 0 0 0 0.55  0 0 0 0.4 0"/>
+            </filter>
+          </defs>
+
+          <!-- Drop shadow -->
+          <ellipse cx="270" cy="350" rx="200" ry="18" fill="rgba(80,20,160,0.25)" filter="url(#hShadow)"/>
+
+          <!-- Main boot body -->
+          <path d="M100 300 C95 240 110 160 150 120 C190 80 280 70 350 120 C400 155 450 210 460 270 C465 305 430 320 380 320 L150 320 C120 320 105 315 100 300 Z" fill="url(#hShoeBody)"/>
+
+          <!-- Fur trim at top -->
+          <path d="M130 130 C155 100 200 88 250 85 C300 82 350 90 380 115 C395 128 385 145 370 148 C330 155 260 150 210 148 C175 147 145 143 130 130 Z" fill="url(#hFur)"/>
+          <!-- Fur texture bumps -->
+          <path d="M150 120 Q160 110 170 120 Q180 110 190 120 Q200 108 210 120 Q220 108 230 120 Q240 108 250 120 Q260 108 270 120 Q280 108 290 120 Q300 108 310 118 Q320 108 330 116 Q340 106 350 115" stroke="rgba(255,255,255,0.6)" stroke-width="8" stroke-linecap="round" fill="none"/>
+
+          <!-- Laces -->
+          <path d="M200 175 L240 168 M215 190 L255 183 M230 205 L270 198" stroke="rgba(255,255,255,0.85)" stroke-width="3.5" stroke-linecap="round"/>
+          <path d="M240 168 L260 175 M255 183 L275 190 M270 198 L290 205" stroke="rgba(255,255,255,0.85)" stroke-width="3.5" stroke-linecap="round"/>
+
+          <!-- Toe box detail -->
+          <path d="M95 295 C105 265 135 258 170 262 C240 270 330 260 400 248 C440 240 470 256 468 290 C465 320 435 335 390 335 L165 335 C115 335 92 320 95 295 Z" fill="url(#hSole)"/>
+
+          <!-- Sole edge -->
+          <path d="M100 318 C110 308 130 308 160 312 C240 318 340 308 410 298 C450 292 470 308 468 320" stroke="rgba(200,180,240,0.6)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+
+          <!-- Brand label -->
+          <rect x="230" y="295" width="80" height="20" rx="10" fill="rgba(255,255,255,0.15)"/>
+          <text x="270" y="309" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="8" fill="rgba(255,255,255,0.8)" letter-spacing="2">SHOELLE</text>
+
+          <!-- Small accent toe studs -->
+          <circle cx="420" cy="290" r="5" fill="rgba(255,255,255,0.2)"/>
+          <circle cx="430" cy="302" r="4" fill="rgba(255,255,255,0.15)"/>
+
+          <!-- Reflection shine -->
+          <path d="M180 140 C220 128 290 124 330 132" stroke="rgba(255,255,255,0.25)" stroke-width="5" stroke-linecap="round"/>
+        </svg>
       </div>
     </div>
   </section>
 
   <!-- ==========================================
-       CATEGORY ICONS BAR (FLOATING CARD)
-       ========================================== -->
-  <section class="category-pills-section">
-    <div class="container">
-      <div class="category-pills-card">
-        <!-- Heels -->
-        <a href="#heels" class="category-item">
-          <div class="category-icon-box">
-            <svg viewBox="0 0 32 32" width="30" height="30" fill="currentColor">
-              <path d="M4 25c5 0 9-2 12-6l3-4c1.5-2 3.5-3 6-3h4v4c-2 0-3.5 1-5 2.5l-3 3c-4 4-8 5.5-13 5.5v-2z"/>
-              <path d="M26 12v14h-3V14c1-.8 2-1.5 3-2z"/>
-            </svg>
-          </div>
-          <span class="category-label">Heels</span>
-        </a>
+       CATEGORY PILLS
+  ========================================== -->
+  <div class="category-section">
+    <div class="category-card">
 
-        <!-- sandals -->
-        <a href="#sandals" class="category-item">
-          <div class="category-icon-box">
-            <svg viewBox="0 0 32 32" width="30" height="30" fill="currentColor">
-              <path d="M3 21c2-5 7-7 12-7h5c3 0 6 2 9 6v3H3v-2z"/>
-              <path d="M2 24h28v3H2z"/>
-              <path d="M9 16c2-1 4-1 6 0"/>
-            </svg>
-          </div>
-          <span class="category-label">sandals</span>
-        </a>
+      <a href="#heels" class="category-item">
+        <div class="cat-icon-circle">
+          <svg viewBox="0 0 32 32" fill="currentColor"><path d="M4 26c6 0 10-2 13-7l4-5c2-2.5 4.5-3.5 7.5-3.5H33v5.5c-2.5 0-4 1.5-6 3.5L24 23c-5 5-10 6.5-16 6.5V26z"/><path d="M32 11.5V30H28V14c1.2-1 2.5-1.8 4-2.5z"/></svg>
+        </div>
+        <span class="cat-label">Heels</span>
+      </a>
 
-        <!-- sneakers -->
-        <a href="#sneakers" class="category-item">
-          <div class="category-icon-box">
-            <svg viewBox="0 0 32 32" width="32" height="32" fill="currentColor">
-              <path d="M3 22c2-4 6-6 10-6h6c3 0 6 2 9 6v2H3v-2z"/>
-              <path d="M11 16l4-5h4l2 5"/>
-              <path d="M2 23h28v3H2z"/>
-            </svg>
-          </div>
-          <span class="category-label">sneakers</span>
-        </a>
+      <a href="#sandals" class="category-item">
+        <div class="cat-icon-circle">
+          <svg viewBox="0 0 32 32" fill="currentColor"><path d="M3 21c2-5 7-7 12-7h5c3 0 6 2 9 6v3H3v-2z"/><path d="M2 24h28v3H2z"/></svg>
+        </div>
+        <span class="cat-label">Sandals</span>
+      </a>
 
-        <!-- Boots -->
-        <a href="#boots" class="category-item">
-          <div class="category-icon-box">
-            <svg viewBox="0 0 32 32" width="30" height="30" fill="currentColor">
-              <path d="M8 8h10v10l6 3v5H8V8z"/>
-              <path d="M6 25h20v3H6z"/>
-              <path d="M13 11h4M13 14h4M13 17h4" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <span class="category-label">Boots</span>
-        </a>
+      <a href="#sneakers" class="category-item">
+        <div class="cat-icon-circle">
+          <svg viewBox="0 0 32 32" fill="currentColor"><path d="M3 22c2-4 6-6 10-6h6c3 0 6 2 9 6v2H3v-2z"/><path d="M11 16l4-5h4l2 5"/><path d="M2 23h28v3H2z"/></svg>
+        </div>
+        <span class="cat-label">Sneakers</span>
+      </a>
 
-        <!-- new arrivals -->
-        <a href="#new-arrivals" class="category-item">
-          <div class="category-icon-box">
-            <svg viewBox="0 0 32 32" width="28" height="28" fill="currentColor">
-              <path d="M6 10h20l3 16H3L6 10z"/>
-              <path d="M11 10V7a5 5 0 0 1 10 0v3" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-              <circle cx="16" cy="18" r="2.5" fill="#ffffff"/>
-            </svg>
-          </div>
-          <span class="category-label">new arrivals</span>
-        </a>
+      <a href="#boots" class="category-item">
+        <div class="cat-icon-circle">
+          <svg viewBox="0 0 32 32" fill="currentColor"><path d="M8 8h10v10l6 3v5H8V8z"/><path d="M6 25h20v3H6z"/></svg>
+        </div>
+        <span class="cat-label">Boots</span>
+      </a>
 
-        <!-- best Sellers -->
-        <a href="#best-sellers" class="category-item">
-          <div class="category-icon-box">
-            <svg viewBox="0 0 32 32" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M7 6l18 0l5 7l-14 15l-14 -15z" />
-              <path d="M2 13l28 0" />
-              <path d="M16 28l-5 -15l3 -7" />
-              <path d="M16 28l5 -15l-3 -7" />
-            </svg>
-          </div>
-          <span class="category-label">best Sellers</span>
-        </a>
+      <a href="#new-arrivals" class="category-item">
+        <div class="cat-icon-circle">
+          <svg viewBox="0 0 32 32" fill="currentColor"><path d="M6 10h20l3 16H3L6 10z"/><path d="M11 10V7a5 5 0 0 1 10 0v3" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><circle cx="16" cy="18" r="2.5" fill="white"/></svg>
+        </div>
+        <span class="cat-label">New Arrivals</span>
+      </a>
 
-        <!-- sales -->
-        <a href="#sales" class="category-item">
-          <div class="category-icon-box">
-            <svg viewBox="0 0 32 32" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M14 3l14 14a2 2 0 0 1 0 2.8l-8.2 8.2a2 2 0 0 1 -2.8 0L3 14V3h11z"/>
-              <circle cx="8.5" cy="8.5" r="2.5" fill="currentColor"/>
-            </svg>
-          </div>
-          <span class="category-label">sales</span>
-        </a>
-      </div>
+      <a href="#best-sellers" class="category-item">
+        <div class="cat-icon-circle">
+          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 6l18 0l5 7l-14 15l-14 -15z"/><path d="M2 13l28 0"/><path d="M16 28l-5 -15l3 -7M16 28l5 -15l-3 -7"/></svg>
+        </div>
+        <span class="cat-label">Best Sellers</span>
+      </a>
+
+      <a href="#sales" class="category-item">
+        <div class="cat-icon-circle">
+          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3l14 14a2 2 0 0 1 0 2.8l-8.2 8.2a2 2 0 0 1 -2.8 0L3 14V3h11z"/><circle cx="8.5" cy="8.5" r="2.5" fill="currentColor"/></svg>
+        </div>
+        <span class="cat-label">Sales</span>
+      </a>
+
     </div>
-  </section>
+  </div>
 
   <!-- ==========================================
        BEST SELLERS SECTION
-       ========================================== -->
+  ========================================== -->
   <section id="shop" class="best-sellers-section">
     <div class="container">
-      <h2 class="section-title">BEST SELLERS</h2>
+      <div class="section-header">
+        <span class="section-eyebrow">Our Collection</span>
+        <h2 class="section-title">Best Sellers</h2>
+        <p class="section-subtitle">Hand-picked top styles loved by thousands of customers worldwide.</p>
+      </div>
 
       <div class="products-grid">
-        <!-- 1. Pink Fur-Lined Winter Boot -->
-        <div class="product-card">
-          <button type="button" class="wishlist-btn" aria-label="Add to wishlist">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
-            </svg>
-          </button>
-          <div class="product-media">
-            <svg class="product-img" viewBox="0 0 280 280" fill="none">
-              <rect width="280" height="280" fill="#fdfbfd" rx="12"/>
-              <path d="M95 105 C95 85 185 85 185 105 C195 115 185 130 180 135 C175 140 105 140 100 135 C95 130 85 115 95 105 Z" fill="#ffffff" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.08))"/>
-              <path d="M95 95 C110 90 170 90 185 95" stroke="#fce7ee" stroke-width="6" stroke-linecap="round"/>
-              <path d="M100 130 L105 200 C105 220 120 230 145 230 L200 230 C220 230 230 220 220 200 L180 130 Z" fill="#f4a5ba"/>
-              <path d="M95 230 C95 220 115 220 145 220 L210 220 C235 220 240 235 230 245 L105 245 C95 245 95 235 95 230 Z" fill="#f8f4f0"/>
-              <circle cx="130" cy="150" r="2.5" fill="#ffffff"/><circle cx="150" cy="150" r="2.5" fill="#ffffff"/>
-              <circle cx="135" cy="175" r="2.5" fill="#ffffff"/><circle cx="155" cy="175" r="2.5" fill="#ffffff"/>
-              <path d="M130 150 L155 175 M150 150 L135 175" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
-            </svg>
+
+        <!-- Product 1: Pink Fur Boot -->
+        <div class="product-card" id="prod-1">
+          <div class="product-badges">
+            <span class="badge badge-hot">HOT</span>
           </div>
+          <button type="button" class="wishlist-btn" aria-label="Add Pink Fur Boot to wishlist" onclick="toggleWishlist(this)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </button>
+
+          <div class="product-media">
+            <!-- Pink fur boot SVG -->
+            <svg viewBox="0 0 320 320" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;">
+              <defs>
+                <linearGradient id="pinkBg" x1="0" y1="0" x2="320" y2="320" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#fdf5fb"/>
+                  <stop offset="100%" stop-color="#fce4f5"/>
+                </linearGradient>
+                <linearGradient id="pinkBoot" x1="80" y1="80" x2="240" y2="280" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#f8b4d1"/>
+                  <stop offset="50%" stop-color="#e8779e"/>
+                  <stop offset="100%" stop-color="#c44d7e"/>
+                </linearGradient>
+              </defs>
+              <rect width="320" height="320" fill="url(#pinkBg)" rx="16"/>
+              <!-- Shadow -->
+              <ellipse cx="168" cy="280" rx="95" ry="12" fill="rgba(200,70,130,0.12)"/>
+              <!-- Boot leg -->
+              <rect x="110" y="60" width="80" height="130" rx="14" fill="url(#pinkBoot)"/>
+              <!-- Fur trim -->
+              <path d="M103 60 C103 48 217 48 217 60 C217 78 103 78 103 60 Z" fill="#fff5f8"/>
+              <path d="M108 55 Q116 44 124 56 Q132 44 140 56 Q148 44 156 56 Q164 44 172 56 Q180 44 188 56 Q196 44 204 56 Q212 44 218 54" stroke="rgba(255,220,235,0.9)" stroke-width="10" stroke-linecap="round" fill="none"/>
+              <!-- Boot foot -->
+              <path d="M105 185 L108 230 C108 248 120 258 145 258 L205 258 C225 258 232 248 225 230 L185 185 Z" fill="url(#pinkBoot)"/>
+              <!-- Sole -->
+              <path d="M100 250 C104 238 118 236 145 240 L220 240 C238 240 244 250 238 262 L112 262 C100 262 98 256 100 250 Z" fill="#f8f0f5"/>
+              <!-- Sole line -->
+              <path d="M103 252 L237 252" stroke="rgba(200,130,160,0.3)" stroke-width="1.5"/>
+              <!-- Laces holes -->
+              <circle cx="140" cy="115" r="4" fill="rgba(255,255,255,0.6)"/>
+              <circle cx="160" cy="115" r="4" fill="rgba(255,255,255,0.6)"/>
+              <circle cx="140" cy="135" r="4" fill="rgba(255,255,255,0.6)"/>
+              <circle cx="160" cy="135" r="4" fill="rgba(255,255,255,0.6)"/>
+              <path d="M140 115 L160 135 M160 115 L140 135" stroke="rgba(255,255,255,0.8)" stroke-width="2.5" stroke-linecap="round"/>
+              <!-- Shine -->
+              <path d="M125 90 C140 82 170 80 190 88" stroke="rgba(255,255,255,0.4)" stroke-width="6" stroke-linecap="round"/>
+            </svg>
+            <div class="product-overlay">
+              <button class="quick-add-btn" onclick="addToCart('Pink Fur-Lined Boot', 59.99)">+ Quick Add</button>
+            </div>
+          </div>
+
           <div class="product-info">
-            <h3 class="product-title"><a href="#product">Pink Fur-Lined Winter Boot</a></h3>
-            <div class="product-rating" aria-label="5 stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+            <h3 class="product-name"><a href="#product">Pink Fur-Lined Winter Boot</a></h3>
+            <div class="product-colors">
+              <span class="color-swatch active" style="background:#e8779e;" title="Pink"></span>
+              <span class="color-swatch" style="background:#9574cc;" title="Purple"></span>
+              <span class="color-swatch" style="background:#a05030;" title="Brown"></span>
+            </div>
+            <div class="product-rating">
+              <div class="stars">
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              <span class="rating-count">(128)</span>
+            </div>
             <div class="product-footer">
-              <span class="product-price">$59.99</span>
-              <button type="button" class="add-to-cart-btn" aria-label="Add to cart">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle>
-                  <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                </svg>
+              <div class="price-group">
+                <span class="price-main">$59.99</span>
+                <span class="price-old">$79.99</span>
+              </div>
+              <button class="add-to-cart-btn" aria-label="Add to cart" onclick="addToCart('Pink Fur-Lined Boot', 59.99)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
               </button>
             </div>
           </div>
         </div>
 
-        <!-- 2. Puple Fur-Lined Winter Boot -->
-        <div class="product-card">
-          <button type="button" class="wishlist-btn" aria-label="Add to wishlist">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
-            </svg>
-          </button>
-          <div class="product-media">
-            <svg class="product-img" viewBox="0 0 280 280" fill="none">
-              <rect width="280" height="280" fill="#fdfbfd" rx="12"/>
-              <path d="M95 105 C95 85 185 85 185 105 C195 115 185 130 180 135 C175 140 105 140 100 135 C95 130 85 115 95 105 Z" fill="#ffffff" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.08))"/>
-              <path d="M95 95 C110 90 170 90 185 95" stroke="#eedef8" stroke-width="6" stroke-linecap="round"/>
-              <path d="M100 130 L105 200 C105 220 120 230 145 230 L200 230 C220 230 230 220 220 200 L180 130 Z" fill="#a980db"/>
-              <path d="M95 230 C95 220 115 220 145 220 L210 220 C235 220 240 235 230 245 L105 245 C95 245 95 235 95 230 Z" fill="#f8f4f0"/>
-              <circle cx="130" cy="150" r="2.5" fill="#ffffff"/><circle cx="150" cy="150" r="2.5" fill="#ffffff"/>
-              <circle cx="135" cy="175" r="2.5" fill="#ffffff"/><circle cx="155" cy="175" r="2.5" fill="#ffffff"/>
-              <path d="M130 150 L155 175 M150 150 L135 175" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
-            </svg>
+        <!-- Product 2: Purple Fur Boot -->
+        <div class="product-card" id="prod-2">
+          <div class="product-badges">
+            <span class="badge badge-new">NEW</span>
           </div>
+          <button type="button" class="wishlist-btn" aria-label="Add Purple Fur Boot to wishlist" onclick="toggleWishlist(this)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </button>
+
+          <div class="product-media">
+            <svg viewBox="0 0 320 320" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;">
+              <defs>
+                <linearGradient id="purpBg" x1="0" y1="0" x2="320" y2="320" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#f8f2ff"/>
+                  <stop offset="100%" stop-color="#ede0ff"/>
+                </linearGradient>
+                <linearGradient id="purpBoot" x1="80" y1="80" x2="240" y2="280" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#c09af0"/>
+                  <stop offset="50%" stop-color="#8740d4"/>
+                  <stop offset="100%" stop-color="#5d1ea8"/>
+                </linearGradient>
+              </defs>
+              <rect width="320" height="320" fill="url(#purpBg)" rx="16"/>
+              <ellipse cx="168" cy="280" rx="95" ry="12" fill="rgba(110,40,200,0.12)"/>
+              <rect x="110" y="60" width="80" height="130" rx="14" fill="url(#purpBoot)"/>
+              <path d="M103 60 C103 48 217 48 217 60 C217 78 103 78 103 60 Z" fill="#f5eeff"/>
+              <path d="M108 55 Q116 44 124 56 Q132 44 140 56 Q148 44 156 56 Q164 44 172 56 Q180 44 188 56 Q196 44 204 56 Q212 44 218 54" stroke="rgba(230,210,255,0.9)" stroke-width="10" stroke-linecap="round" fill="none"/>
+              <path d="M105 185 L108 230 C108 248 120 258 145 258 L205 258 C225 258 232 248 225 230 L185 185 Z" fill="url(#purpBoot)"/>
+              <path d="M100 250 C104 238 118 236 145 240 L220 240 C238 240 244 250 238 262 L112 262 C100 262 98 256 100 250 Z" fill="#f2eeff"/>
+              <path d="M103 252 L237 252" stroke="rgba(150,100,220,0.3)" stroke-width="1.5"/>
+              <circle cx="140" cy="115" r="4" fill="rgba(255,255,255,0.6)"/>
+              <circle cx="160" cy="115" r="4" fill="rgba(255,255,255,0.6)"/>
+              <circle cx="140" cy="135" r="4" fill="rgba(255,255,255,0.6)"/>
+              <circle cx="160" cy="135" r="4" fill="rgba(255,255,255,0.6)"/>
+              <path d="M140 115 L160 135 M160 115 L140 135" stroke="rgba(255,255,255,0.8)" stroke-width="2.5" stroke-linecap="round"/>
+              <path d="M125 90 C140 82 170 80 190 88" stroke="rgba(255,255,255,0.35)" stroke-width="6" stroke-linecap="round"/>
+            </svg>
+            <div class="product-overlay">
+              <button class="quick-add-btn" onclick="addToCart('Purple Fur Boot', 49.99)">+ Quick Add</button>
+            </div>
+          </div>
+
           <div class="product-info">
-            <h3 class="product-title"><a href="#product">Puple Fur-Lined Winter Boot</a></h3>
-            <div class="product-rating" aria-label="5 stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+            <h3 class="product-name"><a href="#product">Purple Fur-Lined Winter Boot</a></h3>
+            <div class="product-colors">
+              <span class="color-swatch active" style="background:#8740d4;" title="Purple"></span>
+              <span class="color-swatch" style="background:#e8779e;" title="Pink"></span>
+              <span class="color-swatch" style="background:#c44d4d;" title="Red"></span>
+            </div>
+            <div class="product-rating">
+              <div class="stars">
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              <span class="rating-count">(94)</span>
+            </div>
             <div class="product-footer">
-              <span class="product-price">$49.99</span>
-              <button type="button" class="add-to-cart-btn" aria-label="Add to cart">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle>
-                  <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                </svg>
+              <div class="price-group">
+                <span class="price-main">$49.99</span>
+                <span class="price-old">$69.99</span>
+              </div>
+              <button class="add-to-cart-btn" aria-label="Add to cart" onclick="addToCart('Purple Fur Boot', 49.99)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
               </button>
             </div>
           </div>
         </div>
 
-        <!-- 3. Red Fur-Lined Winter Boot -->
-        <div class="product-card">
-          <button type="button" class="wishlist-btn" aria-label="Add to wishlist">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
-            </svg>
-          </button>
-          <div class="product-media">
-            <svg class="product-img" viewBox="0 0 280 280" fill="none">
-              <rect width="280" height="280" fill="#fdfbfd" rx="12"/>
-              <path d="M95 105 C95 85 185 85 185 105 C195 115 185 130 180 135 C175 140 105 140 100 135 C95 130 85 115 95 105 Z" fill="#ffffff" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.08))"/>
-              <path d="M95 95 C110 90 170 90 185 95" stroke="#fcdde3" stroke-width="6" stroke-linecap="round"/>
-              <path d="M100 130 L105 200 C105 220 120 230 145 230 L200 230 C220 230 230 220 220 200 L180 130 Z" fill="#9e1f37"/>
-              <path d="M95 230 C95 220 115 220 145 220 L210 220 C235 220 240 235 230 245 L105 245 C95 245 95 235 95 230 Z" fill="#f8f4f0"/>
-              <circle cx="130" cy="150" r="2.5" fill="#ffffff"/><circle cx="150" cy="150" r="2.5" fill="#ffffff"/>
-              <circle cx="135" cy="175" r="2.5" fill="#ffffff"/><circle cx="155" cy="175" r="2.5" fill="#ffffff"/>
-              <path d="M130 150 L155 175 M150 150 L135 175" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
-            </svg>
+        <!-- Product 3: Red Fur Boot -->
+        <div class="product-card" id="prod-3">
+          <div class="product-badges">
+            <span class="badge badge-sale">SALE</span>
           </div>
+          <button type="button" class="wishlist-btn" aria-label="Add Red Fur Boot to wishlist" onclick="toggleWishlist(this)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </button>
+
+          <div class="product-media">
+            <svg viewBox="0 0 320 320" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;">
+              <defs>
+                <linearGradient id="redBg" x1="0" y1="0" x2="320" y2="320" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#fff5f5"/>
+                  <stop offset="100%" stop-color="#ffe0e0"/>
+                </linearGradient>
+                <linearGradient id="redBoot" x1="80" y1="80" x2="240" y2="280" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#e87070"/>
+                  <stop offset="50%" stop-color="#c03030"/>
+                  <stop offset="100%" stop-color="#881020"/>
+                </linearGradient>
+              </defs>
+              <rect width="320" height="320" fill="url(#redBg)" rx="16"/>
+              <ellipse cx="168" cy="280" rx="95" ry="12" fill="rgba(180,30,40,0.12)"/>
+              <rect x="110" y="60" width="80" height="130" rx="14" fill="url(#redBoot)"/>
+              <path d="M103 60 C103 48 217 48 217 60 C217 78 103 78 103 60 Z" fill="#fff0f0"/>
+              <path d="M108 55 Q116 44 124 56 Q132 44 140 56 Q148 44 156 56 Q164 44 172 56 Q180 44 188 56 Q196 44 204 56 Q212 44 218 54" stroke="rgba(255,200,200,0.9)" stroke-width="10" stroke-linecap="round" fill="none"/>
+              <path d="M105 185 L108 230 C108 248 120 258 145 258 L205 258 C225 258 232 248 225 230 L185 185 Z" fill="url(#redBoot)"/>
+              <path d="M100 250 C104 238 118 236 145 240 L220 240 C238 240 244 250 238 262 L112 262 C100 262 98 256 100 250 Z" fill="#fff0f0"/>
+              <path d="M103 252 L237 252" stroke="rgba(200,100,100,0.3)" stroke-width="1.5"/>
+              <circle cx="140" cy="115" r="4" fill="rgba(255,255,255,0.6)"/>
+              <circle cx="160" cy="115" r="4" fill="rgba(255,255,255,0.6)"/>
+              <circle cx="140" cy="135" r="4" fill="rgba(255,255,255,0.6)"/>
+              <circle cx="160" cy="135" r="4" fill="rgba(255,255,255,0.6)"/>
+              <path d="M140 115 L160 135 M160 115 L140 135" stroke="rgba(255,255,255,0.8)" stroke-width="2.5" stroke-linecap="round"/>
+              <path d="M125 90 C140 82 170 80 190 88" stroke="rgba(255,255,255,0.35)" stroke-width="6" stroke-linecap="round"/>
+            </svg>
+            <div class="product-overlay">
+              <button class="quick-add-btn" onclick="addToCart('Red Fur Boot', 44.99)">+ Quick Add</button>
+            </div>
+          </div>
+
           <div class="product-info">
-            <h3 class="product-title"><a href="#product">Red Fur-Lined Winter Boot</a></h3>
-            <div class="product-rating" aria-label="5 stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+            <h3 class="product-name"><a href="#product">Red Fur-Lined Winter Boot</a></h3>
+            <div class="product-colors">
+              <span class="color-swatch active" style="background:#c03030;" title="Red"></span>
+              <span class="color-swatch" style="background:#8740d4;" title="Purple"></span>
+              <span class="color-swatch" style="background:#d6be9a;" title="Beige"></span>
+            </div>
+            <div class="product-rating">
+              <div class="stars">
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              <span class="rating-count">(76)</span>
+            </div>
             <div class="product-footer">
-              <span class="product-price">$44.99</span>
-              <button type="button" class="add-to-cart-btn" aria-label="Add to cart">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle>
-                  <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                </svg>
+              <div class="price-group">
+                <span class="price-main">$44.99</span>
+                <span class="price-old">$64.99</span>
+              </div>
+              <button class="add-to-cart-btn" aria-label="Add to cart" onclick="addToCart('Red Fur Boot', 44.99)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
               </button>
             </div>
           </div>
         </div>
 
-        <!-- 4. Beige Fur-Lined Winter Boot -->
-        <div class="product-card">
-          <button type="button" class="wishlist-btn" aria-label="Add to wishlist">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
-            </svg>
+        <!-- Product 4: Beige Fur Boot -->
+        <div class="product-card" id="prod-4">
+          <button type="button" class="wishlist-btn" aria-label="Add Beige Fur Boot to wishlist" onclick="toggleWishlist(this)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
           </button>
+
           <div class="product-media">
-            <svg class="product-img" viewBox="0 0 280 280" fill="none">
-              <rect width="280" height="280" fill="#fdfbfd" rx="12"/>
-              <path d="M95 105 C95 85 185 85 185 105 C195 115 185 130 180 135 C175 140 105 140 100 135 C95 130 85 115 95 105 Z" fill="#ffffff" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.08))"/>
-              <path d="M95 95 C110 90 170 90 185 95" stroke="#f6ede2" stroke-width="6" stroke-linecap="round"/>
-              <path d="M100 130 L105 200 C105 220 120 230 145 230 L200 230 C220 230 230 220 220 200 L180 130 Z" fill="#d6be9a"/>
-              <path d="M95 230 C95 220 115 220 145 220 L210 220 C235 220 240 235 230 245 L105 245 C95 245 95 235 95 230 Z" fill="#f8f4f0"/>
-              <circle cx="130" cy="150" r="2.5" fill="#ffffff"/><circle cx="150" cy="150" r="2.5" fill="#ffffff"/>
-              <circle cx="135" cy="175" r="2.5" fill="#ffffff"/><circle cx="155" cy="175" r="2.5" fill="#ffffff"/>
-              <path d="M130 150 L155 175 M150 150 L135 175" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+            <svg viewBox="0 0 320 320" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;">
+              <defs>
+                <linearGradient id="beigeBg" x1="0" y1="0" x2="320" y2="320" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#fdfaf5"/>
+                  <stop offset="100%" stop-color="#f5ecda"/>
+                </linearGradient>
+                <linearGradient id="beigeBoot" x1="80" y1="80" x2="240" y2="280" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#e8d4b0"/>
+                  <stop offset="50%" stop-color="#c8a870"/>
+                  <stop offset="100%" stop-color="#a07840"/>
+                </linearGradient>
+              </defs>
+              <rect width="320" height="320" fill="url(#beigeBg)" rx="16"/>
+              <ellipse cx="168" cy="280" rx="95" ry="12" fill="rgba(150,110,50,0.12)"/>
+              <rect x="110" y="60" width="80" height="130" rx="14" fill="url(#beigeBoot)"/>
+              <path d="M103 60 C103 48 217 48 217 60 C217 78 103 78 103 60 Z" fill="#faf5ee"/>
+              <path d="M108 55 Q116 44 124 56 Q132 44 140 56 Q148 44 156 56 Q164 44 172 56 Q180 44 188 56 Q196 44 204 56 Q212 44 218 54" stroke="rgba(240,220,190,0.9)" stroke-width="10" stroke-linecap="round" fill="none"/>
+              <path d="M105 185 L108 230 C108 248 120 258 145 258 L205 258 C225 258 232 248 225 230 L185 185 Z" fill="url(#beigeBoot)"/>
+              <path d="M100 250 C104 238 118 236 145 240 L220 240 C238 240 244 250 238 262 L112 262 C100 262 98 256 100 250 Z" fill="#f5ede0"/>
+              <path d="M103 252 L237 252" stroke="rgba(180,140,80,0.3)" stroke-width="1.5"/>
+              <circle cx="140" cy="115" r="4" fill="rgba(255,255,255,0.6)"/>
+              <circle cx="160" cy="115" r="4" fill="rgba(255,255,255,0.6)"/>
+              <circle cx="140" cy="135" r="4" fill="rgba(255,255,255,0.6)"/>
+              <circle cx="160" cy="135" r="4" fill="rgba(255,255,255,0.6)"/>
+              <path d="M140 115 L160 135 M160 115 L140 135" stroke="rgba(255,255,255,0.8)" stroke-width="2.5" stroke-linecap="round"/>
+              <path d="M125 90 C140 82 170 80 190 88" stroke="rgba(255,255,255,0.35)" stroke-width="6" stroke-linecap="round"/>
             </svg>
+            <div class="product-overlay">
+              <button class="quick-add-btn" onclick="addToCart('Beige Fur Boot', 69.99)">+ Quick Add</button>
+            </div>
           </div>
+
           <div class="product-info">
-            <h3 class="product-title"><a href="#product">Beige Fur-Lined Winter Boot</a></h3>
-            <div class="product-rating" aria-label="5 stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+            <h3 class="product-name"><a href="#product">Beige Fur-Lined Winter Boot</a></h3>
+            <div class="product-colors">
+              <span class="color-swatch active" style="background:#c8a870;" title="Beige"></span>
+              <span class="color-swatch" style="background:#9e6e4a;" title="Brown"></span>
+              <span class="color-swatch" style="background:#e8779e;" title="Pink"></span>
+            </div>
+            <div class="product-rating">
+              <div class="stars">
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              <span class="rating-count">(112)</span>
+            </div>
             <div class="product-footer">
-              <span class="product-price">$69.99</span>
-              <button type="button" class="add-to-cart-btn" aria-label="Add to cart">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle>
-                  <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                </svg>
+              <div class="price-group">
+                <span class="price-main">$69.99</span>
+                <span class="price-old">$89.99</span>
+              </div>
+              <button class="add-to-cart-btn" aria-label="Add to cart" onclick="addToCart('Beige Fur Boot', 69.99)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
               </button>
             </div>
           </div>
         </div>
 
-        <!-- 5. Brown Fur-Lined Winter Boot -->
-        <div class="product-card">
-          <button type="button" class="wishlist-btn" aria-label="Add to wishlist">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
-            </svg>
-          </button>
-          <div class="product-media">
-            <svg class="product-img" viewBox="0 0 280 280" fill="none">
-              <rect width="280" height="280" fill="#fdfbfd" rx="12"/>
-              <path d="M95 105 C95 85 185 85 185 105 C195 115 185 130 180 135 C175 140 105 140 100 135 C95 130 85 115 95 105 Z" fill="#ffffff" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.08))"/>
-              <path d="M95 95 C110 90 170 90 185 95" stroke="#eddcd4" stroke-width="6" stroke-linecap="round"/>
-              <path d="M100 130 L105 200 C105 220 120 230 145 230 L200 230 C220 230 230 220 220 200 L180 130 Z" fill="#9e6e4a"/>
-              <path d="M95 230 C95 220 115 220 145 220 L210 220 C235 220 240 235 230 245 L105 245 C95 245 95 235 95 230 Z" fill="#f8f4f0"/>
-              <circle cx="130" cy="150" r="2.5" fill="#ffffff"/><circle cx="150" cy="150" r="2.5" fill="#ffffff"/>
-              <circle cx="135" cy="175" r="2.5" fill="#ffffff"/><circle cx="155" cy="175" r="2.5" fill="#ffffff"/>
-              <path d="M130 150 L155 175 M150 150 L135 175" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
-            </svg>
+        <!-- Product 5: Brown Boot -->
+        <div class="product-card" id="prod-5">
+          <div class="product-badges">
+            <span class="badge badge-new">NEW</span>
           </div>
+          <button type="button" class="wishlist-btn" aria-label="Add Brown Boot to wishlist" onclick="toggleWishlist(this)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </button>
+
+          <div class="product-media">
+            <svg viewBox="0 0 320 320" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;">
+              <defs>
+                <linearGradient id="brownBg" x1="0" y1="0" x2="320" y2="320" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#fdf7f2"/>
+                  <stop offset="100%" stop-color="#ede0d4"/>
+                </linearGradient>
+                <linearGradient id="brownBoot" x1="80" y1="80" x2="240" y2="280" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#c89060"/>
+                  <stop offset="50%" stop-color="#9e6030"/>
+                  <stop offset="100%" stop-color="#703818"/>
+                </linearGradient>
+              </defs>
+              <rect width="320" height="320" fill="url(#brownBg)" rx="16"/>
+              <ellipse cx="168" cy="280" rx="95" ry="12" fill="rgba(110,60,20,0.12)"/>
+              <rect x="110" y="60" width="80" height="130" rx="14" fill="url(#brownBoot)"/>
+              <path d="M103 60 C103 48 217 48 217 60 C217 78 103 78 103 60 Z" fill="#f5ede5"/>
+              <path d="M108 55 Q116 44 124 56 Q132 44 140 56 Q148 44 156 56 Q164 44 172 56 Q180 44 188 56 Q196 44 204 56 Q212 44 218 54" stroke="rgba(220,190,160,0.9)" stroke-width="10" stroke-linecap="round" fill="none"/>
+              <path d="M105 185 L108 230 C108 248 120 258 145 258 L205 258 C225 258 232 248 225 230 L185 185 Z" fill="url(#brownBoot)"/>
+              <path d="M100 250 C104 238 118 236 145 240 L220 240 C238 240 244 250 238 262 L112 262 C100 262 98 256 100 250 Z" fill="#f0e8e0"/>
+              <path d="M103 252 L237 252" stroke="rgba(160,100,50,0.3)" stroke-width="1.5"/>
+              <circle cx="140" cy="115" r="4" fill="rgba(255,255,255,0.5)"/>
+              <circle cx="160" cy="115" r="4" fill="rgba(255,255,255,0.5)"/>
+              <circle cx="140" cy="135" r="4" fill="rgba(255,255,255,0.5)"/>
+              <circle cx="160" cy="135" r="4" fill="rgba(255,255,255,0.5)"/>
+              <path d="M140 115 L160 135 M160 115 L140 135" stroke="rgba(255,240,220,0.7)" stroke-width="2.5" stroke-linecap="round"/>
+              <path d="M125 90 C140 82 170 80 190 88" stroke="rgba(255,255,255,0.3)" stroke-width="6" stroke-linecap="round"/>
+            </svg>
+            <div class="product-overlay">
+              <button class="quick-add-btn" onclick="addToCart('Brown Fur Boot', 54.99)">+ Quick Add</button>
+            </div>
+          </div>
+
           <div class="product-info">
-            <h3 class="product-title"><a href="#product">Brown Fur-Lined Winter Boot</a></h3>
-            <div class="product-rating" aria-label="5 stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+            <h3 class="product-name"><a href="#product">Brown Fur-Lined Winter Boot</a></h3>
+            <div class="product-colors">
+              <span class="color-swatch active" style="background:#9e6030;" title="Brown"></span>
+              <span class="color-swatch" style="background:#c8a870;" title="Tan"></span>
+              <span class="color-swatch" style="background:#0e0e0e;" title="Black"></span>
+            </div>
+            <div class="product-rating">
+              <div class="stars">
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              <span class="rating-count">(58)</span>
+            </div>
             <div class="product-footer">
-              <span class="product-price">$54.99</span>
-              <button type="button" class="add-to-cart-btn" aria-label="Add to cart">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle>
-                  <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                </svg>
+              <div class="price-group">
+                <span class="price-main">$54.99</span>
+              </div>
+              <button class="add-to-cart-btn" aria-label="Add to cart" onclick="addToCart('Brown Fur Boot', 54.99)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
               </button>
             </div>
           </div>
         </div>
-      </div>
+
+        <!-- Product 6: Black Ankle Boot -->
+        <div class="product-card" id="prod-6">
+          <div class="product-badges">
+            <span class="badge badge-hot">TRENDING</span>
+          </div>
+          <button type="button" class="wishlist-btn" aria-label="Add Black Ankle Boot to wishlist" onclick="toggleWishlist(this)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </button>
+
+          <div class="product-media">
+            <svg viewBox="0 0 320 320" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;">
+              <defs>
+                <linearGradient id="blkBg" x1="0" y1="0" x2="320" y2="320" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#f5f5f8"/>
+                  <stop offset="100%" stop-color="#e8e5ee"/>
+                </linearGradient>
+                <linearGradient id="blkBoot" x1="80" y1="80" x2="240" y2="280" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#484050"/>
+                  <stop offset="50%" stop-color="#241e2e"/>
+                  <stop offset="100%" stop-color="#100a16"/>
+                </linearGradient>
+              </defs>
+              <rect width="320" height="320" fill="url(#blkBg)" rx="16"/>
+              <ellipse cx="168" cy="280" rx="95" ry="12" fill="rgba(20,10,40,0.15)"/>
+              <rect x="110" y="60" width="80" height="130" rx="14" fill="url(#blkBoot)"/>
+              <path d="M103 60 C103 48 217 48 217 60 C217 78 103 78 103 60 Z" fill="#ede8f5"/>
+              <path d="M108 55 Q116 44 124 56 Q132 44 140 56 Q148 44 156 56 Q164 44 172 56 Q180 44 188 56 Q196 44 204 56 Q212 44 218 54" stroke="rgba(200,190,220,0.9)" stroke-width="10" stroke-linecap="round" fill="none"/>
+              <path d="M105 185 L108 230 C108 248 120 258 145 258 L205 258 C225 258 232 248 225 230 L185 185 Z" fill="url(#blkBoot)"/>
+              <path d="M100 250 C104 238 118 236 145 240 L220 240 C238 240 244 250 238 262 L112 262 C100 262 98 256 100 250 Z" fill="#ede8f5"/>
+              <path d="M103 252 L237 252" stroke="rgba(100,80,140,0.3)" stroke-width="1.5"/>
+              <circle cx="140" cy="115" r="4" fill="rgba(255,255,255,0.3)"/>
+              <circle cx="160" cy="115" r="4" fill="rgba(255,255,255,0.3)"/>
+              <circle cx="140" cy="135" r="4" fill="rgba(255,255,255,0.3)"/>
+              <circle cx="160" cy="135" r="4" fill="rgba(255,255,255,0.3)"/>
+              <path d="M140 115 L160 135 M160 115 L140 135" stroke="rgba(180,160,220,0.7)" stroke-width="2.5" stroke-linecap="round"/>
+              <path d="M125 90 C140 82 170 80 190 88" stroke="rgba(255,255,255,0.15)" stroke-width="6" stroke-linecap="round"/>
+              <!-- Gold zipper detail -->
+              <rect x="148" y="80" width="4" height="120" rx="2" fill="rgba(200,160,50,0.5)"/>
+            </svg>
+            <div class="product-overlay">
+              <button class="quick-add-btn" onclick="addToCart('Black Ankle Boot', 74.99)">+ Quick Add</button>
+            </div>
+          </div>
+
+          <div class="product-info">
+            <h3 class="product-name"><a href="#product">Black Velvet Ankle Boot</a></h3>
+            <div class="product-colors">
+              <span class="color-swatch active" style="background:#241e2e;" title="Black"></span>
+              <span class="color-swatch" style="background:#c03030;" title="Red"></span>
+              <span class="color-swatch" style="background:#8740d4;" title="Purple"></span>
+            </div>
+            <div class="product-rating">
+              <div class="stars">
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              <span class="rating-count">(183)</span>
+            </div>
+            <div class="product-footer">
+              <div class="price-group">
+                <span class="price-main">$74.99</span>
+                <span class="price-old">$99.99</span>
+              </div>
+              <button class="add-to-cart-btn" aria-label="Add to cart" onclick="addToCart('Black Ankle Boot', 74.99)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 7: White Sneaker -->
+        <div class="product-card" id="prod-7">
+          <div class="product-badges">
+            <span class="badge badge-sale">-30%</span>
+          </div>
+          <button type="button" class="wishlist-btn" aria-label="Add White Sneaker to wishlist" onclick="toggleWishlist(this)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </button>
+
+          <div class="product-media">
+            <svg viewBox="0 0 320 320" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;">
+              <defs>
+                <linearGradient id="snkBg" x1="0" y1="0" x2="320" y2="320" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#f5f2ff"/>
+                  <stop offset="100%" stop-color="#e8e0ff"/>
+                </linearGradient>
+              </defs>
+              <rect width="320" height="320" fill="url(#snkBg)" rx="16"/>
+              <!-- Sneaker shadow -->
+              <ellipse cx="175" cy="260" rx="110" ry="12" fill="rgba(80,40,160,0.1)"/>
+              <!-- Sneaker body - side view -->
+              <path d="M55 215 C60 180 90 155 130 145 C175 133 230 130 265 155 C285 168 285 200 275 218 C265 230 240 240 200 240 L80 240 C60 240 52 230 55 215 Z" fill="#f0eaff"/>
+              <!-- Tongue -->
+              <path d="M130 145 L125 195 C125 205 130 210 140 210 L160 210 C170 210 175 205 175 195 L170 145 Z" fill="#fff" opacity="0.9"/>
+              <!-- Laces -->
+              <path d="M127 160 L172 160 M128 172 L171 172 M129 184 L170 184" stroke="#8740d4" stroke-width="2.5" stroke-linecap="round"/>
+              <!-- Sole -->
+              <path d="M50 232 C54 220 68 218 90 222 L215 222 C248 222 278 228 280 242 C282 250 260 256 220 256 L85 256 C55 256 46 244 50 232 Z" fill="#e0d8f8"/>
+              <!-- Purple accent stripe -->
+              <path d="M210 155 C240 165 270 178 278 200" stroke="#8740d4" stroke-width="14" stroke-linecap="round" opacity="0.7"/>
+              <!-- White highlight -->
+              <path d="M85 178 C110 165 165 158 200 162" stroke="rgba(255,255,255,0.8)" stroke-width="5" stroke-linecap="round"/>
+            </svg>
+            <div class="product-overlay">
+              <button class="quick-add-btn" onclick="addToCart('Purple Sneaker', 39.99)">+ Quick Add</button>
+            </div>
+          </div>
+
+          <div class="product-info">
+            <h3 class="product-name"><a href="#product">Purple Stripe Sneaker</a></h3>
+            <div class="product-colors">
+              <span class="color-swatch active" style="background:#8740d4;" title="Purple"></span>
+              <span class="color-swatch" style="background:#c03030;" title="Red"></span>
+              <span class="color-swatch" style="background:#1a1a2e;" title="Navy"></span>
+            </div>
+            <div class="product-rating">
+              <div class="stars">
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24" opacity="0.3"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              <span class="rating-count">(47)</span>
+            </div>
+            <div class="product-footer">
+              <div class="price-group">
+                <span class="price-main">$39.99</span>
+                <span class="price-old">$56.99</span>
+              </div>
+              <button class="add-to-cart-btn" aria-label="Add to cart" onclick="addToCart('Purple Sneaker', 39.99)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 8: High Heel -->
+        <div class="product-card" id="prod-8">
+          <button type="button" class="wishlist-btn" aria-label="Add High Heel to wishlist" onclick="toggleWishlist(this)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </button>
+
+          <div class="product-media">
+            <svg viewBox="0 0 320 320" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;">
+              <defs>
+                <linearGradient id="heelBg" x1="0" y1="0" x2="320" y2="320" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#fef5ff"/>
+                  <stop offset="100%" stop-color="#f5e0ff"/>
+                </linearGradient>
+                <linearGradient id="heelBody" x1="80" y1="60" x2="240" y2="260" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#b060e8"/>
+                  <stop offset="100%" stop-color="#6820b0"/>
+                </linearGradient>
+              </defs>
+              <rect width="320" height="320" fill="url(#heelBg)" rx="16"/>
+              <ellipse cx="200" cy="280" rx="70" ry="10" fill="rgba(100,30,180,0.12)"/>
+              <!-- Heel shoe side view -->
+              <!-- Toe box -->
+              <path d="M60 200 C65 175 100 160 145 155 C175 152 210 158 230 175 C240 182 245 195 242 205 C238 218 210 228 170 228 L90 228 C68 228 58 216 60 200 Z" fill="url(#heelBody)"/>
+              <!-- Heel structure -->
+              <path d="M62 208 C58 220 55 240 60 260 L75 260 L80 225 Z" fill="url(#heelBody)"/>
+              <path d="M58 255 L80 255 L82 265 L55 265 Z" fill="#5c1a9e"/>
+              <!-- Strap -->
+              <path d="M140 155 C140 140 155 135 165 140 C170 143 172 148 172 155" fill="none" stroke="url(#heelBody)" stroke-width="12" stroke-linecap="round"/>
+              <!-- Buckle -->
+              <rect x="148" y="136" width="18" height="10" rx="5" fill="#d4a0f0"/>
+              <!-- Sole -->
+              <path d="M62 224 L240 224 L240 230 C230 230 90 232 62 230 Z" fill="#ddb0ff"/>
+              <!-- Highlight -->
+              <path d="M80 175 C110 165 165 160 200 165" stroke="rgba(255,255,255,0.4)" stroke-width="5" stroke-linecap="round"/>
+            </svg>
+            <div class="product-overlay">
+              <button class="quick-add-btn" onclick="addToCart('Purple High Heel', 89.99)">+ Quick Add</button>
+            </div>
+          </div>
+
+          <div class="product-info">
+            <h3 class="product-name"><a href="#product">Purple Strap High Heel</a></h3>
+            <div class="product-colors">
+              <span class="color-swatch active" style="background:#6820b0;" title="Purple"></span>
+              <span class="color-swatch" style="background:#1a1a2e;" title="Black"></span>
+              <span class="color-swatch" style="background:#c03030;" title="Red"></span>
+            </div>
+            <div class="product-rating">
+              <div class="stars">
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              <span class="rating-count">(221)</span>
+            </div>
+            <div class="product-footer">
+              <div class="price-group">
+                <span class="price-main">$89.99</span>
+                <span class="price-old">$119.99</span>
+              </div>
+              <button class="add-to-cart-btn" aria-label="Add to cart" onclick="addToCart('Purple High Heel', 89.99)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /products-grid -->
     </div>
   </section>
 
   <!-- ==========================================
-       PROMO BANNERS SECTION
-       ========================================== -->
-  <section class="promo-banners-section">
+       PROMO BANNERS
+  ========================================== -->
+  <section class="promo-section">
     <div class="container">
       <div class="promo-grid">
+
         <!-- Promo 1: New Arrivals -->
         <div class="promo-card">
-          <span class="promo-badge-tag">NEW</span>
-          
-          <div class="promo-content">
-            <span class="promo-tagline">NEW ARRIVALS</span>
-            <h3 class="promo-title-serif">Fresh Styles<br>Just In</h3>
-            <p class="promo-text">Explore the latest trends of the season.</p>
-            <a href="#shop" class="btn-black-pill">
-              SHOP NOW &rarr;
-            </a>
-          </div>
+          <div class="promo-card-bg promo-card-1"></div>
+          <div class="promo-card-overlay"></div>
 
-          <div class="promo-media-alcove">
-            <div class="alcove-arch"></div>
-            <svg class="promo-display-img" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <ellipse cx="120" cy="205" rx="80" ry="16" fill="#ded2f5"/>
-              <path d="M100 80 L102 170 C102 185 110 195 125 195 L145 195 C155 195 160 185 155 170 L145 80 Z" fill="#ffffff" filter="drop-shadow(0 4px 10px rgba(0,0,0,0.1))"/>
-              <path d="M98 75 H148 V85 H98 Z" fill="#f0ebfa"/>
-              <path d="M140 120 L142 180 C142 190 148 198 160 198 L180 198 C188 198 192 190 188 180 L175 120 Z" fill="#9574cc"/>
-              <path d="M165 150 L166 210 C166 218 172 225 182 225 L200 225 C206 225 210 218 206 210 L195 150 Z" fill="#881635"/>
-              <path d="M60 190 C65 175 80 170 100 175 C115 180 125 195 120 205 L65 205 Z" fill="#7d3fb3"/>
-              <path d="M60 205 H120 V212 H60 Z" fill="#ffffff"/>
-              <path d="M95 192 C100 177 115 172 135 177 C150 182 160 197 155 207 L100 207 Z" fill="#a46be3"/>
-              <path d="M95 207 H155 V214 H95 Z" fill="#ffffff"/>
-            </svg>
+          <!-- Shoe illustration inside promo -->
+          <svg class="promo-shoes-artwork" viewBox="0 0 200 280" fill="none" aria-hidden="true">
+            <defs>
+              <linearGradient id="pShoe1" x1="20" y1="20" x2="180" y2="260" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#fff0fa"/>
+                <stop offset="100%" stop-color="#f8c8e8"/>
+              </linearGradient>
+              <linearGradient id="pShoe2" x1="20" y1="20" x2="180" y2="260" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#c09af0"/>
+                <stop offset="100%" stop-color="#7030c0"/>
+              </linearGradient>
+            </defs>
+            <!-- Boot 1 -->
+            <rect x="30" y="40" width="55" height="110" rx="12" fill="url(#pShoe1)" opacity="0.95"/>
+            <path d="M24 40 C24 28 91 28 91 40 C91 55 24 55 24 40 Z" fill="rgba(255,255,255,0.8)"/>
+            <path d="M28 160 L31 210 C31 226 42 236 62 236 L100 236 C116 236 122 226 116 210 L90 160 Z" fill="url(#pShoe1)"/>
+            <path d="M22 218 C26 206 38 204 62 208 L118 208 C134 208 140 218 134 228 L28 228 C22 228 20 224 22 218 Z" fill="rgba(255,255,255,0.6)"/>
+            <!-- Boot 2 (behind, purple) -->
+            <rect x="100" y="65" width="55" height="100" rx="12" fill="url(#pShoe2)" opacity="0.9"/>
+            <path d="M94 65 C94 53 161 53 161 65 C161 80 94 80 94 65 Z" fill="rgba(220,200,255,0.8)"/>
+            <path d="M100 162 L103 205 C103 218 112 226 130 226 L165 226 C178 226 183 218 178 205 L155 162 Z" fill="url(#pShoe2)"/>
+            <path d="M96 213 C100 202 110 200 130 204 L180 204 C193 204 197 213 191 220 L100 220 C94 220 92 216 96 213 Z" fill="rgba(200,170,240,0.5)"/>
+          </svg>
+
+          <div class="promo-card-content">
+            <span class="promo-badge-pill">NEW ARRIVALS</span>
+            <span class="promo-tagline">Fresh Collection 2025</span>
+            <h3 class="promo-heading">Fresh Styles<br>Just In</h3>
+            <p class="promo-text">Explore the latest trends and step out in confidence this season.</p>
+            <a href="#shop" class="btn-promo btn-promo-white">
+              Shop Now
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
           </div>
         </div>
 
         <!-- Promo 2: 15% Off -->
         <div class="promo-card">
-          <div class="promo-badge-round">
-            <span>15%</span>
-            <span>OFF</span>
+          <div class="promo-card-bg promo-card-2"></div>
+          <div class="promo-card-overlay"></div>
+
+          <!-- Discount badge -->
+          <div class="discount-badge">
+            <span class="disc-num">15%</span>
+            <span class="disc-off">OFF</span>
           </div>
 
-          <div class="promo-content">
-            <span class="promo-tagline">special offer</span>
-            <h3 class="promo-title-bold">Get 15% Off<br>On Your First Order</h3>
-            <p class="promo-text">Use code <strong>welcome 15</strong><br>at checkout</p>
-            <a href="#shop" class="btn-black-pill">
-              SHOP NOW &rarr;
+          <!-- Shoe SVG inside promo 2 -->
+          <svg class="promo-shoes-artwork" viewBox="0 0 200 280" fill="none" aria-hidden="true">
+            <defs>
+              <linearGradient id="pShoe3" x1="20" y1="20" x2="180" y2="260" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#d4b0ff"/>
+                <stop offset="100%" stop-color="#7030c0"/>
+              </linearGradient>
+            </defs>
+            <!-- Heel shoe -->
+            <path d="M30 180 C35 155 65 140 100 136 C128 133 155 139 168 154 C176 162 178 176 175 185 C170 198 148 208 118 208 L55 208 C36 208 27 196 30 180 Z" fill="url(#pShoe3)"/>
+            <path d="M32 188 C28 200 25 222 30 240 L45 240 L50 205 Z" fill="url(#pShoe3)"/>
+            <path d="M26 235 L50 235 L52 248 L22 248 Z" fill="#5c1a9e"/>
+            <path d="M100 136 C100 120 115 115 124 120 C129 124 130 130 130 136" fill="none" stroke="url(#pShoe3)" stroke-width="10" stroke-linecap="round"/>
+            <rect x="104" y="112" width="16" height="9" rx="4.5" fill="#c090f0"/>
+            <path d="M35 170 C65 158 120 150 155 155" stroke="rgba(255,255,255,0.3)" stroke-width="5" stroke-linecap="round"/>
+          </svg>
+
+          <div class="promo-card-content">
+            <span class="promo-badge-pill">SPECIAL OFFER</span>
+            <span class="promo-tagline">Limited Time Deal</span>
+            <h3 class="promo-heading">Get 15% Off<br>First Order</h3>
+            <p class="promo-text">Use code <strong style="color:#c9a9f0;">WELCOME15</strong> at checkout.<br>Don't miss out!</p>
+            <a href="#shop" class="btn-promo btn-promo-purple">
+              Claim Offer
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
           </div>
-
-          <div class="promo-media-alcove">
-            <div class="alcove-circle"></div>
-            <svg class="promo-display-img" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <ellipse cx="140" cy="205" rx="65" ry="14" fill="#ffffff"/>
-              <path d="M125 75 L128 175 C128 190 135 200 150 200 L185 200 C195 200 200 190 195 175 L180 75 Z" fill="#dfd2f5" filter="drop-shadow(0 6px 12px rgba(60,20,95,0.15))"/>
-              <path d="M120 70 C120 62 185 62 185 70 C185 78 120 78 120 70 Z" fill="#ffffff"/>
-              <path d="M145 95 Q135 115 130 130" stroke="#b29ad6" stroke-width="2"/>
-              <circle cx="130" cy="132" r="7" fill="#ffffff" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.1))"/>
-              <path d="M148 95 Q142 120 140 145" stroke="#b29ad6" stroke-width="2"/>
-              <circle cx="140" cy="147" r="7" fill="#ffffff" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.1))"/>
-              <path d="M125 198 H195 V206 H125 Z" fill="#ffffff"/>
-              <path d="M130 206 V215 H142 V206 Z" fill="#ded2f5"/>
-            </svg>
-          </div>
         </div>
+
       </div>
     </div>
   </section>
 
   <!-- ==========================================
-       FEATURES / VALUE BAR
-       ========================================== -->
-  <section class="features-bar-section">
+       FEATURES BAR
+  ========================================== -->
+  <section class="features-section">
     <div class="container">
       <div class="features-grid">
-        <!-- 1 -->
+
         <div class="feature-box">
-          <div class="feature-icon-wrapper">
+          <div class="feat-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="1" y="3" width="15" height="13"></rect>
-              <polygon points="16 8 20 8 23 11 23 16 16 16 8"></polygon>
-              <circle cx="5.5" cy="18.5" r="2.5"></circle>
-              <circle cx="18.5" cy="18.5" r="2.5"></circle>
+              <rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/>
+              <circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/>
             </svg>
           </div>
-          <div class="feature-content">
-            <span class="feature-title">Free shipping</span>
-            <span class="feature-subtitle">On order over $100</span>
+          <div class="feat-content">
+            <span class="feat-title">Free Shipping</span>
+            <span class="feat-subtitle">On orders over $100</span>
           </div>
         </div>
 
-        <!-- 2 -->
         <div class="feature-box">
-          <div class="feature-icon-wrapper">
+          <div class="feat-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M1 4v6h6"></path>
-              <path d="M23 20v-6h-6"></path>
-              <path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"></path>
+              <path d="M1 4v6h6"/><path d="M23 20v-6h-6"/>
+              <path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"/>
             </svg>
           </div>
-          <div class="feature-content">
-            <span class="feature-title">Easy Returns</span>
-            <span class="feature-subtitle">Within 30 days</span>
+          <div class="feat-content">
+            <span class="feat-title">Easy Returns</span>
+            <span class="feat-subtitle">Within 30 days</span>
           </div>
         </div>
 
-        <!-- 3 -->
         <div class="feature-box">
-          <div class="feature-icon-wrapper">
+          <div class="feat-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-              <rect x="9" y="10" width="6" height="5" rx="1" fill="currentColor"></rect>
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
             </svg>
           </div>
-          <div class="feature-content">
-            <span class="feature-title">Secure Payment</span>
-            <span class="feature-subtitle">100% protected</span>
+          <div class="feat-content">
+            <span class="feat-title">Secure Payment</span>
+            <span class="feat-subtitle">100% protected</span>
           </div>
         </div>
 
-        <!-- 4 -->
         <div class="feature-box">
-          <div class="feature-icon-wrapper">
+          <div class="feat-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="8" r="6"></circle>
-              <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"></path>
+              <circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/>
             </svg>
           </div>
-          <div class="feature-content">
-            <span class="feature-title">Premium Quality</span>
-            <span class="feature-subtitle">stylish & durable</span>
+          <div class="feat-content">
+            <span class="feat-title">Premium Quality</span>
+            <span class="feat-subtitle">Stylish &amp; durable</span>
           </div>
         </div>
 
-        <!-- 5 -->
         <div class="feature-box">
-          <div class="feature-icon-wrapper">
+          <div class="feat-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M3 18v-6a9 9 0 0 1 18 0v6"></path>
-              <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path>
-              <text x="7" y="11" font-size="7" font-weight="bold" fill="currentColor">24/7</text>
+              <path d="M3 18v-6a9 9 0 0 1 18 0v6"/>
+              <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/>
             </svg>
           </div>
-          <div class="feature-content">
-            <span class="feature-title">24/7 support</span>
-            <span class="feature-subtitle">We're here to help</span>
+          <div class="feat-content">
+            <span class="feat-title">24/7 Support</span>
+            <span class="feat-subtitle">Always here to help</span>
           </div>
         </div>
+
       </div>
     </div>
   </section>
 
   <!-- ==========================================
-       BRAND LOGOS ROW
-       ========================================== -->
-  <section class="brand-logos-section">
+       BRAND LOGOS
+  ========================================== -->
+  <section class="brands-section">
     <div class="container">
-      <div class="brand-logos-row">
-        <!-- Adidas -->
-        <div class="brand-logo-item" aria-label="Adidas">
-          <svg viewBox="0 0 100 45" width="80" height="36" fill="currentColor">
-            <path d="M12 36 L24 16 L32 16 L20 36 Z"/>
-            <path d="M34 36 L48 10 L56 10 L42 36 Z"/>
-            <path d="M58 36 L74 4 L82 4 L66 36 Z"/>
-            <text x="8" y="44" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="10" letter-spacing="1">adidas</text>
+      <p class="brands-label">Trusted by world's top brands</p>
+      <div class="brands-row">
+
+        <div class="brand-item" aria-label="Adidas">
+          <svg viewBox="0 0 120 50" width="90" height="38" fill="currentColor">
+            <path d="M14 40 L26 18 L35 18 L23 40 Z"/>
+            <path d="M38 40 L52 12 L61 12 L47 40 Z"/>
+            <path d="M65 40 L81 5 L90 5 L74 40 Z"/>
+            <text x="10" y="48" font-family="Arial, sans-serif" font-weight="900" font-size="10" letter-spacing="1">adidas</text>
           </svg>
         </div>
 
-        <!-- Puma -->
-        <div class="brand-logo-item" aria-label="Puma">
-          <svg viewBox="0 0 100 45" width="85" height="36" fill="currentColor">
-            <path d="M62 8 C68 4 78 8 82 14 C85 18 80 22 75 19 C70 16 66 18 64 22 C62 25 58 24 56 20 C54 16 58 11 62 8 Z M72 15 C76 12 80 15 78 18 C75 20 71 18 72 15 Z"/>
-            <text x="5" y="32" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="20" letter-spacing="2">PUMA</text>
+        <div class="brand-item" aria-label="Puma">
+          <svg viewBox="0 0 110 50" width="90" height="38" fill="currentColor">
+            <text x="5" y="36" font-family="Arial Black, sans-serif" font-weight="900" font-size="26" letter-spacing="2">PUMA</text>
           </svg>
         </div>
 
-        <!-- Steve Madden -->
-        <div class="brand-logo-item" aria-label="Steve Madden">
-          <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 17px; letter-spacing: 1.5px;">STEVE MADDEN</span>
+        <div class="brand-item" aria-label="Steve Madden">
+          <svg viewBox="0 0 160 40" width="130" height="32" fill="currentColor">
+            <text x="2" y="28" font-family="Arial, sans-serif" font-weight="800" font-size="15" letter-spacing="1.5">STEVE MADDEN</text>
+          </svg>
         </div>
 
-        <!-- Aldo Outlet -->
-        <div class="brand-logo-item" aria-label="Aldo Outlet">
-          <div style="display: flex; flex-direction: column; align-items: center; line-height: 1;">
-            <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 900; font-size: 20px; letter-spacing: 3px;">ALDO</span>
-            <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 9px; letter-spacing: 2px;">OUTLET</span>
-          </div>
+        <div class="brand-item" aria-label="ALDO">
+          <svg viewBox="0 0 80 55" width="70" height="44" fill="currentColor">
+            <text x="4" y="32" font-family="Arial Black, sans-serif" font-weight="900" font-size="24" letter-spacing="4">ALDO</text>
+            <text x="8" y="46" font-family="Arial, sans-serif" font-weight="700" font-size="9" letter-spacing="3">OUTLET</text>
+          </svg>
         </div>
 
-        <!-- Zara -->
-        <div class="brand-logo-item" aria-label="Zara">
-          <span style="font-family: 'Playfair Display', serif; font-weight: 900; font-size: 26px; letter-spacing: 2px;">ZARA</span>
+        <div class="brand-item" aria-label="Zara">
+          <svg viewBox="0 0 80 40" width="70" height="32" fill="currentColor">
+            <text x="2" y="30" font-family="Georgia, serif" font-weight="900" font-size="30" letter-spacing="3">ZARA</text>
+          </svg>
         </div>
 
-        <!-- Converse -->
-        <div class="brand-logo-item" aria-label="Converse">
-          <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 900; font-size: 17px; letter-spacing: 1.5px; display: inline-flex; align-items: center; gap: 4px;">
-            CONVERSE 
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-            </svg>
-            &gt;
-          </span>
+        <div class="brand-item" aria-label="Converse">
+          <svg viewBox="0 0 140 40" width="120" height="32" fill="currentColor">
+            <text x="2" y="28" font-family="Arial Black, sans-serif" font-weight="900" font-size="18" letter-spacing="2">CONVERSE</text>
+          </svg>
         </div>
 
-        <!-- New Balance -->
-        <div class="brand-logo-item" aria-label="New Balance">
-          <div style="display: flex; flex-direction: column; align-items: center; line-height: 1;">
-            <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-style: italic; font-weight: 900; font-size: 22px; letter-spacing: -1px;">NB</span>
-            <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 9px; letter-spacing: 1px;">new balance</span>
-          </div>
+        <div class="brand-item" aria-label="New Balance">
+          <svg viewBox="0 0 80 55" width="70" height="44" fill="currentColor">
+            <text x="8" y="30" font-family="Arial Black, sans-serif" font-weight="900" font-style="italic" font-size="24" letter-spacing="-1">NB</text>
+            <text x="2" y="44" font-family="Arial, sans-serif" font-weight="600" font-size="9" letter-spacing="1">new balance</text>
+          </svg>
         </div>
+
       </div>
     </div>
   </section>
 
   <!-- ==========================================
-       FOOTER SECTION
-       ========================================== -->
+       FOOTER
+  ========================================== -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
-        <!-- Col 1: Newsletter -->
-        <div class="footer-col">
-          <h4 class="footer-col-title">SUBSCRIBE & GET 10% OFF</h4>
-          <p class="newsletter-desc">
-            Join our newsletter and be the first to know about new arrival and exclusive offers
+
+        <!-- Brand + Newsletter -->
+        <div class="footer-brand-col">
+          <div class="footer-logo">
+            <svg width="36" height="36" viewBox="0 0 48 48" fill="none">
+              <rect width="48" height="48" rx="12" fill="#5c1a9e"/>
+              <path d="M10 34C15 34 20 32 23 27L26 22C28 19 30 17 34 17H39V22C36 22 34 23.5 32 25.5L28 29.5C23 35 17 36 10 36V34Z" fill="#fff"/>
+            </svg>
+            <span class="footer-logo-title">MEA'S SHOELLE</span>
+          </div>
+          <p class="footer-brand-desc">
+            Chic styles, premium comfort and elegance in every step. Your destination for premium footwear.
           </p>
-          <form class="newsletter-form" action="#" method="post">
-            <input type="email" class="newsletter-input" placeholder="Enter your email" required aria-label="Email address">
-            <button type="submit" class="btn-newsletter-subscribe">SUBSCRIBE</button>
+          <form class="newsletter-form" onsubmit="handleNewsletter(event)">
+            <input type="email" class="newsletter-input" placeholder="Your email address" required aria-label="Email for newsletter">
+            <button type="submit" class="newsletter-submit">SUBSCRIBE</button>
           </form>
         </div>
 
-        <!-- Col 2: SHOP -->
-        <div class="footer-col">
+        <!-- SHOP links -->
+        <div>
           <h4 class="footer-col-title">SHOP</h4>
-          <ul class="footer-links-list">
+          <ul class="footer-links">
             <li><a href="#all">All Products</a></li>
             <li><a href="#new-arrivals">New Arrivals</a></li>
             <li><a href="#best-sellers">Best Sellers</a></li>
@@ -704,76 +2404,144 @@
           </ul>
         </div>
 
-        <!-- Col 3: HELP -->
-        <div class="footer-col">
+        <!-- HELP links -->
+        <div>
           <h4 class="footer-col-title">HELP</h4>
-          <ul class="footer-links-list">
-            <li><a href="#shipping">Shipping and Delivery</a></li>
-            <li><a href="#returns">Return & Exchanges</a></li>
+          <ul class="footer-links">
+            <li><a href="#shipping">Shipping &amp; Delivery</a></li>
+            <li><a href="#returns">Returns &amp; Exchanges</a></li>
             <li><a href="#size-guide">Size Guide</a></li>
             <li><a href="#faqs">FAQs</a></li>
             <li><a href="#track-order">Track Order</a></li>
-            <li><a href="#contact">contact Us</a></li>
+            <li><a href="#contact">Contact Us</a></li>
           </ul>
         </div>
 
-        <!-- Col 4: ABOUT -->
-        <div class="footer-col">
+        <!-- ABOUT links -->
+        <div>
           <h4 class="footer-col-title">ABOUT</h4>
-          <ul class="footer-links-list">
+          <ul class="footer-links">
             <li><a href="#about-us">About Us</a></li>
-            <li><a href="#our-stores">Our stores</a></li>
+            <li><a href="#our-stores">Our Stores</a></li>
             <li><a href="#careers">Careers</a></li>
             <li><a href="#privacy-policy">Privacy Policy</a></li>
-            <li><a href="#terms">Terms & Conditions</a></li>
+            <li><a href="#terms">Terms &amp; Conditions</a></li>
           </ul>
         </div>
 
-        <!-- Col 5: FOLLOW US & PAYMENTS -->
-        <div class="footer-col">
+        <!-- Social + Payments -->
+        <div>
           <h4 class="footer-col-title">FOLLOW US</h4>
-          <div class="social-icons-row">
-            <!-- Facebook -->
-            <a href="https://facebook.com" target="_blank" rel="noopener" class="social-icon-btn" aria-label="Facebook">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-              </svg>
+          <div class="social-icons">
+            <a href="https://facebook.com" target="_blank" rel="noopener" class="social-btn" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
             </a>
-            <!-- Instagram -->
-            <a href="https://instagram.com" target="_blank" rel="noopener" class="social-icon-btn" aria-label="Instagram">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-              </svg>
+            <a href="https://instagram.com" target="_blank" rel="noopener" class="social-btn" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
             </a>
-            <!-- TikTok -->
-            <a href="https://tiktok.com" target="_blank" rel="noopener" class="social-icon-btn" aria-label="TikTok">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.298-.002.595.042.88.13V9.4a6.33 6.33 0 0 0-1-.08A6.34 6.34 0 0 0 3 15.66a6.34 6.34 0 0 0 10.81 4.48 6.3 6.3 0 0 0 1.83-4.47V8.62a8.27 8.27 0 0 0 4.75 1.51v-3.44h-.8z"></path>
-              </svg>
+            <a href="https://tiktok.com" target="_blank" rel="noopener" class="social-btn" aria-label="TikTok">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.298-.002.595.042.88.13V9.4a6.33 6.33 0 0 0-1-.08A6.34 6.34 0 0 0 3 15.66a6.34 6.34 0 0 0 10.81 4.48 6.3 6.3 0 0 0 1.83-4.47V8.62a8.27 8.27 0 0 0 4.75 1.51v-3.44h-.8z"/></svg>
             </a>
-            <!-- Pinterest -->
-            <a href="https://pinterest.com" target="_blank" rel="noopener" class="social-icon-btn" aria-label="Pinterest">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2a10 10 0 0 0-3.66 19.31c-.05-.8-.1-2.03.02-2.9.11-.79.74-5.2.74-5.2s-.19-.38-.19-.94c0-.88.51-1.54 1.15-1.54.54 0 .8.41.8.9 0 .55-.35 1.36-.53 2.12-.15.64.32 1.15.95 1.15 1.14 0 2.02-1.2 2.02-2.93 0-1.53-1.1-2.6-2.67-2.6-1.82 0-2.88 1.36-2.88 2.77 0 .55.21 1.14.48 1.46.05.06.06.12.04.18-.04.18-.15.6-.17.68-.03.11-.1.15-.22.1-1-.46-1.62-1.92-1.62-3.1 0-2.52 1.83-4.84 5.28-4.84 2.77 0 4.93 1.98 4.93 4.62 0 2.76-1.74 4.97-4.15 4.97-.81 0-1.57-.42-1.83-.92l-.5 1.9c-.18.69-.67 1.56-1 2.09A10 10 0 1 0 12 2z"></path>
-              </svg>
+            <a href="https://pinterest.com" target="_blank" rel="noopener" class="social-btn" aria-label="Pinterest">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-3.66 19.31c-.05-.8-.1-2.03.02-2.9.11-.79.74-5.2.74-5.2s-.19-.38-.19-.94c0-.88.51-1.54 1.15-1.54.54 0 .8.41.8.9 0 .55-.35 1.36-.53 2.12-.15.64.32 1.15.95 1.15 1.14 0 2.02-1.2 2.02-2.93 0-1.53-1.1-2.6-2.67-2.6-1.82 0-2.88 1.36-2.88 2.77 0 .55.21 1.14.48 1.46.05.06.06.12.04.18-.04.18-.15.6-.17.68-.03.11-.1.15-.22.1-1-.46-1.62-1.92-1.62-3.1 0-2.52 1.83-4.84 5.28-4.84 2.77 0 4.93 1.98 4.93 4.62 0 2.76-1.74 4.97-4.15 4.97-.81 0-1.57-.42-1.83-.92l-.5 1.9c-.18.69-.67 1.56-1 2.09A10 10 0 1 0 12 2z"/></svg>
             </a>
           </div>
 
-          <p class="payment-methods-title">We accept</p>
-          <div class="payment-badges-row">
-            <span class="payment-badge" style="font-weight: 900; color: #1a1f71;">VISA</span>
-            <span class="payment-badge" style="font-weight: 800; color: #eb001b;">MC</span>
-            <span class="payment-badge" style="font-weight: 800; color: #003087;">PayPal</span>
-            <span class="payment-badge" style="font-weight: 700; color: #000000;">Pay</span>
+          <p class="payment-label">We Accept</p>
+          <div class="payment-row">
+            <span class="pay-badge" style="color:#1a1f71;">VISA</span>
+            <span class="pay-badge" style="color:#eb001b;">MC</span>
+            <span class="pay-badge" style="color:#003087;">PayPal</span>
+            <span class="pay-badge">Pay</span>
           </div>
+        </div>
+
+      </div>
+
+      <!-- Footer bottom -->
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; 2025 MEA'S SHOELLE. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#privacy-policy">Privacy Policy</a>
+          <a href="#terms">Terms of Service</a>
+          <a href="#sitemap">Sitemap</a>
         </div>
       </div>
     </div>
   </footer>
 
-  <!-- Theme Script -->
-  <script src="assets/theme.js"></script>
+  <script>
+    /* ==========================================
+       CART SYSTEM
+    ========================================== */
+    let cartCount = 0;
+
+    function addToCart(productName, price) {
+      cartCount++;
+      document.getElementById('cart-count').textContent = cartCount;
+      showToast(`✓ ${productName} added to cart — $${price}`);
+    }
+
+    function toggleWishlist(btn) {
+      btn.classList.toggle('wishlisted');
+      if (btn.classList.contains('wishlisted')) {
+        btn.style.background = '#fff0f0';
+        btn.style.color = '#ef4444';
+        btn.style.borderColor = '#ef4444';
+        btn.querySelector('svg').setAttribute('fill', '#ef4444');
+        showToast('❤ Added to wishlist');
+      } else {
+        btn.style.background = '';
+        btn.style.color = '';
+        btn.style.borderColor = '';
+        btn.querySelector('svg').setAttribute('fill', 'none');
+      }
+    }
+
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      toast.textContent = message;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 3200);
+    }
+
+    function handleNewsletter(e) {
+      e.preventDefault();
+      showToast('🎉 You\'re subscribed! Check your email for 10% off.');
+      e.target.reset();
+    }
+
+    /* ==========================================
+       COLOR SWATCHES
+    ========================================== */
+    document.querySelectorAll('.product-colors').forEach(group => {
+      group.querySelectorAll('.color-swatch').forEach(swatch => {
+        swatch.addEventListener('click', () => {
+          group.querySelectorAll('.color-swatch').forEach(s => s.classList.remove('active'));
+          swatch.classList.add('active');
+        });
+      });
+    });
+
+    /* ==========================================
+       SCROLL REVEAL
+    ========================================== */
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.style.opacity = '1';
+          e.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.product-card, .promo-card, .feature-box').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(24px)';
+      el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+      observer.observe(el);
+    });
+  </script>
+
 </body>
 </html>
